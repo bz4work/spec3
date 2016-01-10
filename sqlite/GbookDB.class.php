@@ -33,6 +33,10 @@ class GbookDB implements IGbookDB{
 		}
 	}
 	function deletePost($id){
+	/*****************************************|
+	* Исправить: при ошибке вывода данных из БД
+	* на экране не отображается ошибка
+	******************************************/
 		$sql = "DELETE FROM msgs
 				WHERE id = $id";
 		$result = $this->_db->query($sql);
