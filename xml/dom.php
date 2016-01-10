@@ -1,4 +1,12 @@
 <?php
+$domObj = new DOMDocument();
+$domObj->load("catalog.xml");
+$root = $domObj->documentElement;
+
+$child = $root->childNodes;
+
+
+
 	/*
 	ЗАДАНИЕ 1
 	- Создайте объект DOM
@@ -20,10 +28,23 @@
 			<th>Цена, руб</th>
 		</tr>
 <?php
-	/*
-	ЗАДАНИЕ 2
-	- Заполните таблицу необходимыми данными
-	*/
+
+
+foreach ($child as $book){
+	if ($book->nodeType == 1){
+		echo "<tr>";
+			foreach ($book->childNodes as $item){
+				if ($item->nodeType == 1){
+					echo "<td>";
+					echo $item->textContent;
+					echo "</td>";
+				}
+			}
+		echo "</tr>";
+	}
+}
+
+
 ?>
 	</table>
 </body>

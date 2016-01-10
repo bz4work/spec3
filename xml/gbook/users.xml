@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<users>
+  <user>
+    <name>John Smith</name>
+    <email>john@mith.com</email>
+    <message>Hello, world!</message>
+    <ip>127.0.0.1</ip>
+    <datetime>1452457904</datetime>
+  </user>
+  <user>
+    <name>Mike Doe</name>
+    <email>mike@dot.com</email>
+    <message>VW Golf MK2 the Best!</message>
+    <ip>127.0.0.1</ip>
+    <datetime>1452457941</datetime>
+  </user>
+  <user>
+    <name>Slava</name>
+    <email>slava@topcar.ua</email>
+    <message>Yahooeu s vas!</message>
+    <ip>127.0.0.1</ip>
+    <datetime>1452457968</datetime>
+  </user>
+  <user>
+    <name>Ivan</name>
+    <email>ivan@dot.com</email>
+    <message>test msg!</message>
+    <ip>127.0.0.1</ip>
+    <datetime>1452458653</datetime>
+  </user>
+</users>

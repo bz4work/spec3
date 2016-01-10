@@ -1,15 +1,58 @@
 <?php
-/* 
-ЗАДАНИЕ 1
+error_reporting(-1);
+header('Content-type: text/html; charset=utf-8');
+/* ЗАДАНИЕ 1
 - Создайте константу для хранения имени XML-файла
 - Проверьте, была ли отправлена HTML-форма?
 	Если она была отправлена: отфильтруйте полученные данные
 - Получите данные об IP-адресе пользователя	
 - Получите данные о текущих дате и времени
 */
+define ("USERS_LOG","users.xml");
+if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+	$ip = $_SERVER['REMOTE_ADDR'];
+	$dt = time();
+	$name = trim(strip_tags($_POST['name']));
+	$email = trim(strip_tags($_POST['email']));
+	$msg = trim(strip_tags($_POST['msg']));
+	
+	$obj = new DOMDocument('1.0','utf-8');//создаем екземпляр класса
+	
+	//форматировать документ --> погуглить что это такое
+	$obj->formatOutput = true;
+	//что-то про пробелы --> погуглить что это такое
+	$obj->preserveWhiteSpace = false;
+	
+	if (file_exists(USERS_LOG)){//если файл есть
+		$obj->load(USERS_LOG);//загрузили файл
+		$root = $obj->documentElement;//получили корневой елемент
+	}else{//если файла нету
+		$root = $obj->createElement('users');//создаем главный елемент, в который все вкладываем
+		$obj->appendChild($root);//создаем файл и привязавыем главный елемент к файлу
+	}
+	
+	$n = $obj->createElement('name',$name);//создаем елемент <name>имя которое пришло</name> и сразу вкладываем текст
+	$e = $obj->createElement('email',$email);
+	$m = $obj->createElement('message',$msg);
+	$i = $obj->createElement('ip',$ip);
+	$d = $obj->createElement('datetime',$dt);
+	
+	$user = $obj->createElement('user');//создаем елемент <user> для каждого набора данных
+	$root->appendChild($user);//привязываем <user> к корневому елементу
+	
+	$user->appendChild($n);//привязываем елемент <name>имя которое пришло</name> к елменту user, который вложен в users
+	$user->appendChild($e);
+	$user->appendChild($m);
+	$user->appendChild($i);
+	$user->appendChild($d);
+	
+	$obj->save(USERS_LOG);//сохраняем всё из памяти в файл *.xml
+	header ('Location: gbook.php');//перезапрашиваем страницу чтобы убить данные из буфера
+	
+	exit;//заканчиваем работу скрипта принудительно
+}
 
-/*
-ЗАДАНИЕ 2
+/*ЗАДАНИЕ 2
 - Создайте объект DOMDocument
 - Проверьте, существует ли xml-документ с данными
 	Если существует, загрузите его в созданный объект
@@ -18,8 +61,7 @@
 	и привяжите его к объекту
 */
 
-/*
-ЗАДАНИЕ 3
+/*ЗАДАНИЕ 3
 - Cоздайте новый XML-элемент "user" для очередной записи
 - Cоздайте XML-элементы для всех данных Гостевой книги:
 	name, email, msg, IP, datetime
@@ -56,15 +98,61 @@
 
 </form>
 
+<table border='1'>
+<tr>
+<th>Имя</th>
+<th>Почта</th>
+<th>Сообщение</th>
+<th>From @</th>
+<th>Дата</th>
+<tr>
 <?php
-/*
-ЗАДАНИЕ 4
+/*ЗАДАНИЕ 4
 - Создайте объект SimpleXML и загрузите в него XML-документ
 - Выведите в браузер все сообщения, а также информацию
   об авторе каждого сообщения в произвольной форме
   в обратном порядке
 */
-?>
 
+# =================================== #
+#     ВЫВОД ФАЙЛА XML ЧЕРЕЗ SAX       #
+# =================================== #
+
+function start($sax, $tag, $att){
+	//вставляем <tr> во всех случаях когда у нас USER
+	if ($tag == "USER"){
+		echo "<tr>";
+	}
+	//вставляем <td> во всех случаях когда у нас не USERS или не USER
+	if ($tag != "USERS" and $tag != "USER"){
+		echo "<td>";
+	}
+}
+function theEnd($sax, $tag){
+	//вставляем </td> во всех случаях когда у нас не USERS или не USER
+	if ($tag != "USERS" and $tag != "USER"){
+		echo "</td>";
+	}
+	//вставляем </tr> во всех случаях когда у нас USER
+	if ($tag == "USER"){
+		echo "</tr>";
+	}
+}
+function text($sax, $text){
+	echo $text;//каждый раз когда попадаем на текстовый узел - выводим его
+}
+
+$saxer = xml_parser_create("UTF-8"); // создаем парсер
+
+xml_set_element_handler($saxer, "start", "theEnd");//инициализация функций работы с открывающими и закрывающими тегами
+xml_set_character_data_handler($saxer, "text");//инициализация функции работы с текстовыми узлами
+
+xml_parse($saxer, file_get_contents(USERS_LOG));//запуск парсера на чтение строки, строку получаем читая из файла
+
+# =================================== #
+#     ВЫВОД ФАЙЛА XML ЧЕРЕЗ SAX       #
+# =================================== #
+?>
+</table>
 </body>
 </html>
