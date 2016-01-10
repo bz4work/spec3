@@ -1,6 +1,5 @@
 <?php
-error_reporting(E_ALL);
-//какой то текст
+error_reporting(0);
 
 /* ЗАДАНИЕ 1
 - Подключите файл с описанием класса GbookDB
@@ -9,7 +8,8 @@ error_reporting(E_ALL);
 */
 include "GbookDB.class.php";
 $obj = new GbookDb();
-$errMsg = "";
+$obj->timeZone();
+$errMsg='';
 
 /* ЗАДАНИЕ 3
 - Проверьте, была ли отправлена HTML-форма?
@@ -18,14 +18,13 @@ $errMsg = "";
 if ($_SERVER['REQUEST_METHOD'] == "POST"){
 	include "savepost.inc.php";
 }
-
-
-/*
-ЗАДАНИЕ 5
+/*ЗАДАНИЕ 5
 - Проверьте, был ли запрос методом GET на удаление записи
 - Если ДА, то подключите файл с кодом для удаления записи
 */
-
+if (isset($_GET['delete']) && !empty($_GET['delete'])){
+	include "deletepost.inc.php";
+}
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -45,7 +44,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
 */
 if ($errMsg)
 	echo $errMsg;
-
 ?>
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 
@@ -59,14 +57,24 @@ if ($errMsg)
 <input type="submit" value="Добавить!" />
 
 </form>
+<hr>
 
+<table align='left' width='' border='1'>
+<tr>
+<th>Имя пользователя:</th>
+<th>Сообщение:</th>
+<th>Оставлено:</th>
+<th>IP:</th>
+<th>Удалить сообщение</th>
+</tr>
 <?php
-
-/*
-ЗАДАНИЕ 4
+/*ЗАДАНИЕ 4
 - Подключите файл с кодом для обработки полученных записей Гостевой книги
 */
+include "getall.inc.php";
+
 ?>
+</table>
 
 </body>
 </html>

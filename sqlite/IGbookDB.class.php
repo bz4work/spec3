@@ -28,5 +28,9 @@ interface IGbookDB{
 	*	@return boolean - результат успех/ошибка
 	*/
 	function deletePost($id);
+	/**
+	*	Установка временной зоны
+	*/
+	function timeZone();
 }
 ?>

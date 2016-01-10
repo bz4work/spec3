@@ -1,4 +1,17 @@
 <?php
+$res = $obj->getAll();
+$id_arr = array();
+foreach ($res as $row){
+	$id_arr[] = $row['id'];
+}
+$id = abs((int)$_GET['delete']);
+
+if (in_array($id, $id_arr)){
+	$obj->deletePost($id);
+	header ('Location: gbook.php');
+}else{
+	$errMsg = "Хакер, не ломай мою Гостевую книгу!";
+}
 /*
 ЗАДАНИЕ 1
 - Отфильтруйте полученные данные

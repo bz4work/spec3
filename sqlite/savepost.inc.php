@@ -1,11 +1,14 @@
 <?php
-$name = $_POST['name'];
-$email = $_POST['email'];
-$msg = $_POST['msg'];
+$name = $obj->clearData($_POST['name']);
+$email = $obj->clearData($_POST['email']);
+$msg = $obj->clearData($_POST['msg']);
 
 if (!empty($name) and !empty($email) and !empty($msg)){
-	$obj->savePost($name, $email, $msg);
-	header ('Location: gbook.php');	
+	$res = $obj->savePost($name, $email, $msg);
+	if ($res)
+		header ('Location: gbook.php');	
+	else 
+		$errMsg = "Произошла ошибка при добавлении сообщения в БазуДанных";
 }else{
 	$errMsg = "Заполните все поля формы!";
 }

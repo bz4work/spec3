@@ -1,10 +1,5 @@
 <?php
-error_reporting(-1);
 include "IGbookDB.class.php";
-
-//function __autoload($n){
-//	include "$n.class.php";
-//}
 
 /*задание 1
 ЗАДАНИЕ 1
@@ -20,11 +15,28 @@ include "IGbookDB.class.php";
 class GbookDB implements IGbookDB{
 	const DB_NAME = 'gbook.db';
 	private $_db;
-	
-
-	function getAll(){}
-	function deletePost($id){}
-	
+	function timeZone(){
+		date_default_timezone_set('Europe/Kiev');
+	}
+	function getAll(){
+		$sql = "SELECT id, name, email, msg, datetime, ip
+				FROM msgs
+				ORDER BY id DESC";
+		try{
+			$res = $this->_db->arrayQuery($sql, SQLITE_ASSOC);
+				if (!$res){
+					throw new SQLiteException(sqlite_error_string($this->_db->lastError()));
+				}
+			return $res;
+		}catch(SQLiteException $e){
+			return false;	
+		}
+	}
+	function deletePost($id){
+		$sql = "DELETE FROM msgs
+				WHERE id = $id";
+		$result = $this->_db->query($sql);
+	}
 	function __construct(){
 		/*ЗАДАНИЕ 2
 - Измените конструктор так, чтобы в нём выполнялась проверка, существует ли база данных на следующих условиях: 
@@ -45,51 +57,36 @@ class GbookDB implements IGbookDB{
 		}else{
 			$this->_db = new SQLiteDatabase(self::DB_NAME);
 		}
-		
 	}
-	
+	function clearData ($data){
+		$data = strip_tags($data);
+		$data = trim($data);
+		$data = sqlite_escape_string($data);
+		return $data;
+	}
 	function __destruct(){
 		unset($this->_db);
 	}
-	
 	function toString(){
 		echo "o!";
 	}
-	
 	function savePost($name, $email, $msg){
 		$dt_tm = time();
 		$user_ip = $_SERVER['REMOTE_ADDR'];
 		$sql = "INSERT INTO msgs (name,email,msg,datetime,ip)
 				VALUES ('$name','$email','$msg',$dt_tm,'$user_ip')";
-		$this->_db->query($sql);
+		try{
+			$res = $this->_db->query($sql);
+				if (!$res){
+					throw new SQLiteException(sqlite_error_string($this->_db->lastError()));
+				}
+			return true;
+		}catch(SQLiteException $e){
+			return false;
+		}
 	}
-}
 
-
-
-
-/*
-ЗАДАНИЕ 3
-- Опишите метод savePost. Смотрите описание метода в интерфейсе IGbookDB
-- Получите данные о текущих дате и времени
-- Получите данные об IP адресе пользователя	
-- Сформируйте строку запроса на добавление новой записи
-- Добавьте новую запись в таблицу msgs	
-*/
-
-/*
-ЗАДАНИЕ 4
-- Опишите метод getAll. Смотрите описание метода в интерфейсе IGbookDB
-- Сформируйте строку запроса на выборку всех данных из таблицы msgs в обратном порядке
-- Получите и верните результат запроса
-*/
-
-/*
-ЗАДАНИЕ 5
-- Опишите метод deletePost. Смотрите описание метода в интерфейсе IGbookDB
-- Сформируйте строку запроса на удаление новой записи
-- Удалите запись из таблицы msgs	
-*/
+}//закрывающая скобка класса
 
 /*
 ЗАДАНИЕ 6 (Если останется время)
