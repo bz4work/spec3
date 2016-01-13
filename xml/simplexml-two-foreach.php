@@ -21,23 +21,13 @@
 			<th>Цена, руб</th>
 		</tr>
 <?php
-	foreach ($testXML as $book=>$item){
+	foreach ($testXML as $book){
 		echo '<tr>';
-			echo '<td>';
-			echo $item->author;
-			echo '</td>';
-			
-			echo '<td>';
-			echo $item->title;
-			echo '</td>';
-			
-			echo '<td>';
-			echo $item->price;
-			echo '</td>';
-			
-			echo '<td>';
-			echo $item->pubyear;
-			echo '</td>';
+			foreach ($book as $item=>$val){
+				echo '<td>';
+				echo $val;
+				echo '</td>';
+			}
 		echo '</tr>';
 	}
 ?>
