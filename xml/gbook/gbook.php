@@ -119,19 +119,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 #	ВЫВОД ФАЙЛА XML ЧЕРЕЗ SimpleXML   #
 # =================================== #
 $simplexml = simplexml_load_file(USERS_LOG);
-//echo '<pre>';
-//var_dump($simplexml);
-//echo '</pre>';
 
-foreach ($simplexml->user as $item){
+/*Выводим новые первыми*/
+$users = (array) $simplexml;//приводим к типу Массив
+$users = array_reverse($users['user']);//переворачиваем Массив ВЛОЖЕННЫЙ массив ['user'], который вложен в массив $users
+//если переворачивать просто $users - ничего не получиться
+
+//foreach ($simplexml->user as $item){
+foreach ($users as $item){//сюда передаем массив с вложенным перевернутым массивом (массив в массиве)
 	echo '<tr>';
 		echo '<td>'. $item->name .'</td>';
 		echo '<td>'. $item->email .'</td>';
 		echo '<td>'. $item->message .'</td>';
 		echo '<td>'. $item->ip .'</td>';
-		$temp = ($item->datetime)*1;
-		
-		$time = date('d-m-Y H:i:s',$temp);
+		$time = date('d-m-Y H:i:s',$item->datetime*1);
 		echo '<td>'. $time .'</td>';
 	echo '</tr>';
 }
