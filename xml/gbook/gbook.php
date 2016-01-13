@@ -9,6 +9,8 @@ header('Content-type: text/html; charset=utf-8');
 - Получите данные о текущих дате и времени
 */
 define ("USERS_LOG","users.xml");
+
+date_default_timezone_set('Europe/Kiev');
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 	$ip = $_SERVER['REMOTE_ADDR'];
 	$dt = time();
@@ -49,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 	$obj->save(USERS_LOG);//сохраняем всё из памяти в файл *.xml
 	header ('Location: gbook.php');//перезапрашиваем страницу чтобы убить данные из буфера
 	
-	exit;//заканчиваем работу скрипта принудительно
+	exit;//заканчиваем работу скрипта принудительно, на всякий случай =)
 }
 
 /*ЗАДАНИЕ 2
@@ -113,10 +115,36 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
   об авторе каждого сообщения в произвольной форме
   в обратном порядке
 */
+# =================================== #
+#	ВЫВОД ФАЙЛА XML ЧЕРЕЗ SimpleXML   #
+# =================================== #
+$simplexml = simplexml_load_file(USERS_LOG);
+//echo '<pre>';
+//var_dump($simplexml);
+//echo '</pre>';
+
+foreach ($simplexml->user as $item){
+	echo '<tr>';
+		echo '<td>'. $item->name .'</td>';
+		echo '<td>'. $item->email .'</td>';
+		echo '<td>'. $item->message .'</td>';
+		echo '<td>'. $item->ip .'</td>';
+		$temp = ($item->datetime)*1;
+		
+		$time = date('d-m-Y H:i:s',$temp);
+		echo '<td>'. $time .'</td>';
+	echo '</tr>';
+}
+
+# =================================== #
+#	ВЫВОД ФАЙЛА XML ЧЕРЕЗ SimpleXML   #
+# =================================== #
+
 
 # =================================== #
 #     ВЫВОД ФАЙЛА XML ЧЕРЕЗ SAX       #
 # =================================== #
+/*
 
 function start($sax, $tag, $att){
 	//вставляем <tr> во всех случаях когда у нас USER
@@ -149,6 +177,7 @@ xml_set_character_data_handler($saxer, "text");//инициализация фу
 
 xml_parse($saxer, file_get_contents(USERS_LOG));//запуск парсера на чтение строки, строку получаем читая из файла
 
+*/
 # =================================== #
 #     ВЫВОД ФАЙЛА XML ЧЕРЕЗ SAX       #
 # =================================== #

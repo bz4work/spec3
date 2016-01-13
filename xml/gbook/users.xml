@@ -28,4 +28,11 @@
     <ip>127.0.0.1</ip>
     <datetime>1452458653</datetime>
   </user>
+  <user>
+    <name>test</name>
+    <email>test@test.com</email>
+    <message>test</message>
+    <ip>127.0.0.1</ip>
+    <datetime>1452709616</datetime>
+  </user>
 </users>
