@@ -5,10 +5,11 @@ $msg = $obj->clearData($_POST['msg']);
 
 if (!empty($name) and !empty($email) and !empty($msg)){
 	$res = $obj->savePost($name, $email, $msg);
-	if ($res)
+	if ($res === true){
 		header ('Location: gbook.php');	
-	else 
-		$errMsg = "Произошла ошибка при добавлении сообщения в БазуДанных";
+	}else{
+		$errMsg = "Произошла ошибка при добавлении сообщения в БазуДанных: <br>".$res;
+	}
 }else{
 	$errMsg = "Заполните все поля формы!";
 }

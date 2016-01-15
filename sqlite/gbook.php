@@ -37,14 +37,6 @@ if (isset($_GET['delete']) && !empty($_GET['delete'])){
 <body>
 
 <h1>Гостевая книга</h1>
-<?php
-/* ЗАДАНИЕ 2
-- Проверьте, не является ли переменная $errMsg пустой строкой?
-- Если НЕТ, то выведите значение переменной $errMsg
-*/
-if ($errMsg)
-	echo $errMsg;
-?>
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 
 Ваше имя:<br />
@@ -59,7 +51,7 @@ if ($errMsg)
 </form>
 <hr>
 
-<table align='left' width='' border='1'>
+<table border="1">
 <tr>
 <th>Имя пользователя:</th>
 <th>Сообщение:</th>
@@ -72,9 +64,17 @@ if ($errMsg)
 - Подключите файл с кодом для обработки полученных записей Гостевой книги
 */
 include "getall.inc.php";
-
 ?>
 </table>
+
+<?php
+/* ЗАДАНИЕ 2
+- Проверьте, не является ли переменная $errMsg пустой строкой?
+- Если НЕТ, то выведите значение переменной $errMsg
+*/
+if ($errMsg)
+	echo '<p>'.$errMsg.'</p>';
+?>
 
 </body>
 </html>

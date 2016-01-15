@@ -28,15 +28,11 @@ class GbookDB implements IGbookDB{
 					throw new SQLiteException(sqlite_error_string($this->_db->lastError()));
 				}
 			return $res;
-		}catch(SQLiteException $e){
-			return false;	
+		}catch(SQLiteException $err){
+			return $err;	
 		}
 	}
 	function deletePost($id){
-	/*****************************************|
-	* Исправить: при ошибке вывода данных из БД
-	* на экране не отображается ошибка
-	******************************************/
 		$sql = "DELETE FROM msgs
 				WHERE id = $id";
 		$result = $this->_db->query($sql);
@@ -85,8 +81,8 @@ class GbookDB implements IGbookDB{
 					throw new SQLiteException(sqlite_error_string($this->_db->lastError()));
 				}
 			return true;
-		}catch(SQLiteException $e){
-			return false;
+		}catch(SQLiteException $err){
+			return $err;
 		}
 	}
 
