@@ -1,7 +1,7 @@
 <?xml version ='1.0' encoding ='UTF-8' ?> 
 <definitions name='Stock' 
-  targetNamespace='http://localhost/spec3/soap' 
-  xmlns:tns=' http://localhost/spec3/soap ' 
+  targetNamespace='http://localhost/soap' 
+  xmlns:tns=' http://localhost/soap ' 
   xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' 
   xmlns:xsd='http://www.w3.org/2001/XMLSchema' 
   xmlns:soapenc='http://schemas.xmlsoap.org/soap/encoding/' 
@@ -28,7 +28,7 @@
 
 <service name='StockService'> 
 	<port name='StockPort' binding='StockBinding'> 
-		<soap:address location='http://localhost/spec3/soap/server.php'/> 
+		<soap:address location='http://localhost/soap/server.php'/> 
 	</port> 
 </service> 
 </definitions>
