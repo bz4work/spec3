@@ -1,0 +1,34 @@
+<?xml version ='1.0' encoding ='UTF-8' ?> 
+<definitions name='Stock' 
+  targetNamespace='http://localhost/spec3/soap' 
+  xmlns:tns=' http://localhost/spec3/soap ' 
+  xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' 
+  xmlns:xsd='http://www.w3.org/2001/XMLSchema' 
+  xmlns:soapenc='http://schemas.xmlsoap.org/soap/encoding/' 
+  xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' 
+  xmlns='http://schemas.xmlsoap.org/wsdl/'> 
+
+<message name='getStockRequest'><!--что передаем в функцию-->
+	<part name='num' type='xsd:string'/><!--тут указано что функция принимает (input->Request) одно значение строкового типа, имя у значения будет num--> 
+</message> 
+<message name='getStockResponse'><!--что пполучаем из функции-->
+	<part name='Result' type='xsd:integer'/><!--тут указано что функция возвращает (output->Responce) одно значение integer типа, имя у значения будет Result--> 
+</message> 
+
+<portType name='StockPortType'><!--какие и сколько значений функция принимает и возвращает-->
+	<operation name='getStock'><!--использовать	функцию с именем getStock-->
+		<input message='tns:getStockRequest'/><!--функция getStock принимает входящие данные-->
+		<output message='tns:getStockResponse'/><!--функция getStock отдает данные-->
+	</operation> 
+</portType> 
+
+<binding name='StockBinding' type='tns:StockPortType'><!--имя функции которую надо использовать-->
+	<operation name='getStock'/><!--использовать функцию с именем getStock-->
+</binding> 
+
+<service name='StockService'><!--расположение файла .php с нашей функцией-->
+	<port name='StockPort' binding='StockBinding'> 
+		<soap:address location='http://localhost/spec3/soap/server.php'/><!--в location указано какой .php файл использовать -->
+	</port> 
+</service> 
+</definitions>
