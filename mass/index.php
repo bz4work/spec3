@@ -1,7 +1,7 @@
 <?php
 error_reporting(-1);
 header ('Content-type: text/html; charser=utf-8');
-
+###test
 $link = mysqli_connect('localhost', 'root', 'rootroot', 'opencart203');
 
 if (!$link){
