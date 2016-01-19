@@ -1,8 +1,8 @@
 <?php
 function sql_prod ($model, $man, $price){
-//$model = $_POST['model'];
-//$man = (int)$_POST['man'];
-//$price = $_POST['price'];
+$sort_order = 99;//сортировка
+$quan = 1000;//количество на складе
+$stock = 7; //есть в наличии
 $sql_prod = "INSERT INTO `product` (`model`, 
 									`sku`, 
 									`upc`, 
@@ -33,27 +33,97 @@ $sql_prod = "INSERT INTO `product` (`model`,
 									`viewed`, 
 									`date_added`, 
 									`date_modified`) 
-							VALUES ('$model', '', '', '', '', '', '', '', 939, 7, '', $man, 1, '$price', 0, 0, '2009-02-03', 1, 1, 0.00000000, 0.00000000, 0.00000000, 1, 1, 1, 1, 1, 0, '2009-02-03 16:06:50', '2011-09-30 01:05:39')"; 
-return $sql_prod;
+							VALUES ('$model', '', '', '', '', '', '', '', $quan, $stock, '', $man, 1, '$price', 0, 0, '2016-01-01', 1, 1, 0.00000000, 0.00000000, 0.00000000, 1, 1, 1, $sort_order, 1, 0, '2016-01-01 00:00:00', '2016-01-01 00:00:00')"; 
+$res_inc_product = mysqli_query($_POST['link'], $sql_prod);
+
+if ($res_inc_product)
+	return true;
+else
+	return $errMsg = $_POST['link']->error;
 }
 
-function sql_prod_attr(){							
+function sql_prod_attr($ah, $polar, $korpus, $sizes, $tok){
+########  SELECT product_id  ##########################################################
+$select_prod_id = "SELECT product_id FROM product ORDER BY product_id DESC LIMIT 1";
+$res_inc = mysqli_query($_POST['link'], $select_prod_id);
+$prod_id_res = mysqli_fetch_assoc($res_inc);
+$prod_id = $prod_id_res['product_id'];
+########  SELECT product_id  ##########################################################			
+$attr_id = 0;//id атрибута
+$lang = 2;//язык, русский - 2
+
 $sql_prod_attr = "INSERT INTO `product_attribute` (`product_id`, `attribute_id`, `language_id`, `text`) 
-						VALUES (47, 4, 1, '16GB'),(47, 2, 1, '4');";
+						VALUES ($prod_id, 12, $lang, '$ah'),
+								($prod_id, 13, $lang, '$polar'),
+								($prod_id, 14, $lang, '$korpus'),
+								($prod_id, 15, $lang, '$sizes'),
+								($prod_id, 16, $lang, '$tok');";
+$res_inc_attr = mysqli_query($_POST['link'], $sql_prod_attr);
+if ($res_inc_attr)
+	return true;
+else
+	return $errMsg = $_POST['link']->error;
+}
+
+function sql_prod_cat(){
+########  SELECT product_id  ##########################################################
+$select_model = "SELECT product_id FROM product ORDER BY product_id DESC LIMIT 1";
+$res_inc = mysqli_query($_POST['link'], $select_model);
+$prod_id_res = mysqli_fetch_assoc($res_inc);
+$prod_id = $prod_id_res['product_id'];
+########  SELECT product_id  ##########################################################
+$cat_id = 59;//авто аккумуляторы
+$sql_prod_cat = "INSERT INTO `product_to_category` (`product_id`, `category_id`) 
+						VALUES ($prod_id, $cat_id);";
+$res_inc_cat = mysqli_query($_POST['link'], $sql_prod_cat);
+if ($res_inc_cat)
+	return true;
+else
+	return $errMsg = $_POST['link']->error;
+}
+
+function sql_prod_layout(){
+########  SELECT product_id  ##########################################################
+$select_model = "SELECT product_id FROM product ORDER BY product_id DESC LIMIT 1";
+$res_inc = mysqli_query($_POST['link'], $select_model);
+$prod_id_res = mysqli_fetch_assoc($res_inc);
+$prod_id = $prod_id_res['product_id'];
+########  SELECT product_id  ##########################################################
+$store = 0;//магазин по-умолчанию
+$lay = 0;//по-умолчанию 0
+$sql_prod_lay = "INSERT INTO `product_to_layout` (`product_id`, `store_id`, `layout_id`) 
+						VALUES ($prod_id, $store, $lay);";
+$res_inc_lay = mysqli_query($_POST['link'], $sql_prod_lay);
+if ($res_inc_lay)
+	return true;
+else
+	return $errMsg = $_POST['link']->error;
+}
+
+function sql_prod_store(){
+########  SELECT product_id  ##########################################################
+$select_model = "SELECT product_id FROM product ORDER BY product_id DESC LIMIT 1";
+$res_inc = mysqli_query($_POST['link'], $select_model);
+$prod_id_res = mysqli_fetch_assoc($res_inc);
+$prod_id = $prod_id_res['product_id'];
+########  SELECT product_id  ##########################################################
+$store = 0;//магазин по-умолчанию
+$sql_prod_store = "INSERT INTO `product_to_store` (`product_id`, `store_id`) 
+						VALUES ($prod_id, $store);";
+$res_inc_store = mysqli_query($_POST['link'], $sql_prod_store);
+if ($res_inc_store)
+	return true;
+else
+	return $errMsg = $_POST['link']->error;
 }
 
 function sql_prod_desc($name, $descr, $m_title, $m_descr){
 ########  SELECT product_id  ##########################################################
-$select_model = "SELECT product_id FROM product ORDER BY product_id DESC LIMIT 1";    #
-$res_inc = mysqli_query($_POST['link'], $select_model);                               #
-$prod_id_res = mysqli_fetch_assoc($res_inc);                                          #
-$product_id = $prod_id_res['product_id'];                                             #
+$select_model = "SELECT product_id FROM product ORDER BY product_id DESC LIMIT 1";
+$res_inc = mysqli_query($_POST['link'], $select_model);//($_POST['link'], $select_model);
+$prod_id_res = mysqli_fetch_assoc($res_inc);
+$product_id = $prod_id_res['product_id'];
 ########  SELECT product_id  ##########################################################
-
-//$name = $_POST['h1_name'];
-//$descr = $_POST['text'];
-//$m_title = $_POST['mtitle'];
-//$m_descr = $_POST['mdescr'];
 
 $sql_prod_desc = "INSERT INTO `product_description` (`product_id`, 
 													 `language_id`, 
@@ -63,7 +133,11 @@ $sql_prod_desc = "INSERT INTO `product_description` (`product_id`,
 													 `meta_title`, 
 													 `meta_description`, 
 													 `meta_keyword`) 
-											   VALUE ($product_id, 1, '$name', '$descr', '', '$m_title', '$m_descr', '');";	
-return $sql_prod_desc;
+											   VALUE ($product_id, 2, '$name', '$descr', '', '$m_title', '$m_descr', '');";	
+$res_inc_descr = mysqli_query($_POST['link'], $sql_prod_desc);
+if ($res_inc_descr)
+	return true;
+else
+	return $errMsg = $_POST['link']->error;
 }
 ?>
