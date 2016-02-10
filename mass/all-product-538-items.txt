@@ -63,54 +63,6 @@ Berga Power 77Ah R+ 780A
 Berga Start 45Ah L+ 400A
 Berga Start 45Ah R+ 400A
 Berga Start 56Ah R+ 480A
-Bosch S3 41Ah R+ 360A (низкобазовый)
-Bosch S3 45Ah L+ 400A
-Bosch S3 45Ah R+ 400A
-Bosch S3 53Ah R+ 500A (низкобазовый)
-Bosch S3 56Ah L+ 480A
-Bosch S3 56Ah R+ 480A
-Bosch S3 70Ah R+ 640A (низкобазовый)
-Bosch S3 90Ah R+ 720A
-Bosch S4 40Ah JL+ 330A (тонкая клемма)
-Bosch S4 40Ah JR+ 330A (тонкая клемма)
-Bosch S4 42Ah R+ 390A
-Bosch S4 44Ah R+ 440A (низкобазовый)
-Bosch S4 45Ah JR+ 330A
-Bosch S4 45Ah JR+ 330A (тонкая клемма)
-Bosch S4 52Ah R+ 470A
-Bosch S4 60Ah JL+ 540A
-Bosch S4 60Ah JR+ 540A
-Bosch S4 60Ah L+ 540A
-Bosch S4 60Ah R+ 540A
-Bosch S4 60Ah R+ 540A (низкобазовый)
-Bosch S4 70Ah JL+ 630A
-Bosch S4 70Ah JR+ 630A
-Bosch S4 72Ah R+ 680A (низкобазовый)
-Bosch S4 74Ah L+ 680A
-Bosch S4 74Ah R+ 680A
-Bosch S4 80Ah R+ 720A (низкобазовый)
-Bosch S4 95Ah JL+ 830A
-Bosch S4 95Ah JR+ 830A
-Bosch S4 95Ah R+ 800A
-Bosch S5 100Ah R+ 830A
-Bosch S5 110Ah R+ 920A
-Bosch S5 52Ah R+ 520A (низкобазовый)
-Bosch S5 52Ah R+ 520A (низкобазовый)
-Bosch S5 54Ah R+ 530A
-Bosch S5 54Ah R+ 530A
-Bosch S5 61Ah R+ 600A (низкобазовый)
-Bosch S5 63Ah R+ 610A
-Bosch S5 74Ah R+ 750A (низкобазовый)
-Bosch S5 77Ah R+ 780A
-Bosch S5 85Ah R+ 800A (низкобазовый)
-Bosch S5 AGM 105Ah R+ 950A
-Bosch S5 AGM 60Ah R+ 680A
-Bosch S5 AGM 70Ah R+ 760A
-Bosch S5 AGM 80Ah R+ 800A (низкобазовый)
-Bosch S5 AGM 95Ah R+ 850A
-Bosch T4 140Ah L+ 800A
-Bosch T5 180Ah L+ 1000A
-Bosch T5 225Ah L+ 1150A
 Bost 105D26L 85Ah JR+ 720A
 Bost 115D31L 100Ah JR+ 800A
 Delphi Freedom 100Ah L+ 830A

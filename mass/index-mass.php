@@ -11,7 +11,7 @@ if (!$link){
 //echo 'Соединение установлено... ' . mysqli_get_host_info($link) . "<br><br>";
 $_POST['link'] = $link;
 $_POST['cnt'] = 0;
-$file = file("bosch-all.txt");
+$file = file("all_product_bosch.txt");
 $cnt = count($file);
 foreach ($file as $v){
 	$arr[] = explode(" ", $v);
@@ -72,7 +72,7 @@ if ($arr[$i][2] < 52){
 	<input type='text' name='price_<?=$i?>' value='1500'> Цена<br>
 	<input type='text' name='h1_name_<?=$i?>' value='<?=$file[$i]?>' size='50'> Имя (H1)<br>
 	<textarea cols='52' rows='3' name='text_<?=$i?>'></textarea> Текст-описание<br>
-	<input type='text' name='mtitle_<?=$i?>' value='Аккумулятор автомобильный <?=$file[$i]?>- доставка, низкие цены, Киев и Украина' size='50'> meta-title<br>
+	<input type='text' name='mtitle_<?=$i?>' value='Аккумулятор автомобильный <?=$file[$i]?> доставка, низкие цены, Киев и Украина' size='50'> meta-title<br>
 	<input type='text' name='mdescr_<?=$i?>' value='Аккумулятор для авто <?=$file[$i]?>. Доставка по Киеву и Укране. Скидки! Дорого купим Ваш старый АКБ.' size='50'> meta-description<br>
 	<input type='text' name='ah_<?=$i?>' value="<?=$arr[$i][2]?>"> Эмкость<br>
 	<input type='text' name='polar_<?=$i?>' value="<?=$polar?>"> Полярность<br>
@@ -101,7 +101,7 @@ include "lib.inc.php";
 		$res_attr = sql_prod_attr($_POST["ah_$i"],$_POST["polar_$i"],$_POST["korpus_$i"],$_POST["sizes_$i"], $_POST["tok_$i"]);
 		
 		if ($res_product){
-			echo "Cтрока №".$i." insert to PRODUCT -> OK!<br>";
+			echo "Cтрока №".$i."<br>insert to PRODUCT -> OK!<br>";
 				if ($res_descr){
 					echo "insert to PRODUCT_DESCRIPTION -> OK!<br>";
 						if ($res_cat){
@@ -128,7 +128,7 @@ include "lib.inc.php";
 					echo $err = $res_descr;
 				}
 		}else{
-			echo $err = $res_product;
+			echo "<div style='color: red'>".$res_product."</div>";
 		}
 	}
 }//скобка if ($_SERVER['REQUEST_METHOD'] == "POST")

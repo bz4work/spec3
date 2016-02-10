@@ -1,5 +1,5 @@
 <?php
-header ('Content-type: text/html; charset=windows-1251');
+//header ('Content-type: text/html; charset=windows-1251');
 function last_prod_id(){
 	
 }
@@ -9,6 +9,7 @@ $sort_order = 99;//сортировка
 $quan = 1000;//количество на складе
 $stock = 7; //есть в наличии
 $status = 0;//1 - включено на сайте, 0 - выключено
+global $link;
 $sql_prod = "INSERT INTO `product` (`model`, 
 									`sku`, 
 									`upc`, 
@@ -39,8 +40,9 @@ $sql_prod = "INSERT INTO `product` (`model`,
 									`viewed`, 
 									`date_added`, 
 									`date_modified`) 
-							VALUES ('$model', '', '', '', '', '', '', '', $quan, $stock, '', $man, 1, '$price', 0, 0, '2016-01-01', 1, 1, 0.00000000, 0.00000000, 0.00000000, 1, 1, 1, $sort_order, $status, 0, '2016-01-01 00:00:00', '2016-01-01 00:00:00')"; 
-$res_inc_product = mysqli_query($_POST['link'], $sql_prod);
+							VALUES ('$model', '', '', '', '', '', '', '', $quan, $stock, '', $man, 1, '$price', 0, 0, '2016-01-01', 15, 1, 242.00000000, 175.00000000, 190.00000000, 1, 1, 1, $sort_order, $status, 0, '2016-01-01 00:00:00', '2016-01-01 00:00:00')"; 
+//$res_inc_product = mysqli_query($_POST['link'], $sql_prod);
+$res_inc_product = mysqli_query($link, $sql_prod);
 
 if ($res_inc_product)
 	return true;
@@ -79,8 +81,10 @@ $prod_id_res = mysqli_fetch_assoc($res_inc);
 $prod_id = $prod_id_res['product_id'];
 ########  SELECT product_id  ##########################################################
 $cat_id = 59;//авто аккумуляторы
+$cat_id2 = 64;//подкатегория по брендам, например для варты 64
+
 $sql_prod_cat = "INSERT INTO `product_to_category` (`product_id`, `category_id`) 
-						VALUES ($prod_id, $cat_id);";
+						VALUES ($prod_id, $cat_id), ($prod_id, $cat_id2);";
 $res_inc_cat = mysqli_query($_POST['link'], $sql_prod_cat);
 if ($res_inc_cat)
 	return true;
@@ -130,7 +134,7 @@ $res_inc = mysqli_query($_POST['link'], $select_model);//($_POST['link'], $selec
 $prod_id_res = mysqli_fetch_assoc($res_inc);
 $product_id = $prod_id_res['product_id'];
 ########  SELECT product_id  ##########################################################
-$lang = 1;//язык: 1-english; 2-русский;
+$lang = 2;//язык: 1-english; 2-русский;
 $sql_prod_desc = "INSERT INTO `product_description` (`product_id`, 
 													 `language_id`, 
 													 `name`, 

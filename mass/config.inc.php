@@ -1,6 +1,6 @@
 <?php
-define ('DB_HOST', 'localhost');
-define ('DB_LOGIN', 'root');
-define ('DB_PASS', 'rootroot');
-define ('DB_NAME', 'opencart203');
+define ('DB_HOST', '');
+define ('DB_LOGIN', '');
+define ('DB_PASS', '');
+define ('DB_NAME', '');
 ?>
