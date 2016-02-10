@@ -7,9 +7,9 @@ require "/config.inc.php";
 
 $link = mysqli_connect(DB_HOST, DB_LOGIN, DB_PASS, DB_NAME);
 if (!$link){
-	die('Ошибка: '.mysqli_connect_errno() . '-'. mysqli_connect_error());
+	die('РћС€РёР±РєР°: '.mysqli_connect_errno() . '-'. mysqli_connect_error());
 }
-//echo 'Соединение установлено... ' . mysqli_get_host_info($link) . "<br><br>";
+//echo 'РЎРѕРµРґРёРЅРµРЅРёРµ СѓСЃС‚Р°РЅРѕРІР»РµРЅРѕ... ' . mysqli_get_host_info($link) . "<br><br>";
 $_POST['link'] = $link;
 $_POST['cnt'] = 0;
 
@@ -19,7 +19,7 @@ $cnt = count($file);
 foreach ($file as $v){
 	$arr[] = explode(" ", $v);
 }
-$m = 1;//код товара, если 1 - начать нумерацию с 00001
+$m = 1;//РєРѕРґ С‚РѕРІР°СЂР°, РµСЃР»Рё 1 - РЅР°С‡Р°С‚СЊ РЅСѓРјРµСЂР°С†РёСЋ СЃ 00001
 
 
 
@@ -45,20 +45,20 @@ if ($m < 10 || $i < 9){
 
 if ($key = array_search('R+', $arr[$i])){
 	$polar = 'R+';
-	$korpus_type = 'Евро';
+	$korpus_type = 'Р•РІСЂРѕ';
 }elseif ($key = array_search('L+', $arr[$i])){
 	$polar = 'L+';
-	$korpus_type = 'Евро';
+	$korpus_type = 'Р•РІСЂРѕ';
 }elseif ($key = array_search('JR+', $arr[$i])){
 	$polar = 'JR+';
-	$korpus_type = 'Азия';
+	$korpus_type = 'РђР·РёСЏ';
 }elseif ($key = array_search('JL+', $arr[$i])){
 	$polar = 'JL+';
-	$korpus_type = 'Азия';
+	$korpus_type = 'РђР·РёСЏ';
 }
 
 
-if ($key = array_search('(низкобазовый)', $arr[$i])){
+if ($key = array_search('(РЅРёР·РєРѕР±Р°Р·РѕРІС‹Р№)', $arr[$i])){
 	$niz = '175';
 }else{
 	$niz = '190';
@@ -74,24 +74,24 @@ if ($arr[$i][2] < 52){
 	$dlina = '353';
 }
 ?>
-	<input type='text' name='model_<?=$i?>' value="<?php echo $zero, $m++; ?>"> код товара (model)<br>
-	<input type='text' name='man_<?=$i?>' value='11'> Производитель (11 - Bosch, manufactured)<br>
-	<input type='text' name='price_<?=$i?>' value='1500'> Цена<br>
-	<input type='text' name='h1_name_<?=$i?>' value='<?=$file[$i]?>' size='50'> Имя (H1)<br>
-	<textarea cols='52' rows='3' name='text_<?=$i?>'></textarea> Текст-описание<br>
-	<input type='text' name='mtitle_<?=$i?>' value='Аккумулятор автомобильный <?=$file[$i]?>- доставка, низкие цены, Киев и Украина' size='50'> meta-title<br>
-	<input type='text' name='mdescr_<?=$i?>' value='Аккумулятор для авто <?=$file[$i]?>. Доставка по Киеву и Укране. Скидки! Дорого купим Ваш старый АКБ.' size='50'> meta-description<br>
-	<input type='text' name='ah_<?=$i?>' value="<?=$arr[$i][2]?>"> Эмкость<br>
-	<input type='text' name='polar_<?=$i?>' value="<?=$polar?>"> Полярность<br>
-	<input type='text' name='korpus_<?=$i?>' value="<?=$korpus_type?>"> Тип корпуса<br>
-	<input type='text' name='sizes_<?=$i?>' value="<?=$dlina?>х175х<?=$niz?>"> Размеры<br>
-	<input type='text' name='tok_<?=$i?>' value="<?=$arr[$i][4]?>"> Пусковой<br>
+	<input type='text' name='model_<?=$i?>' value="<?php echo $zero, $m++; ?>"> РєРѕРґ С‚РѕРІР°СЂР° (model)<br>
+	<input type='text' name='man_<?=$i?>' value='11'> РџСЂРѕРёР·РІРѕРґРёС‚РµР»СЊ (11 - Bosch, manufactured)<br>
+	<input type='text' name='price_<?=$i?>' value='1500'> Р¦РµРЅР°<br>
+	<input type='text' name='h1_name_<?=$i?>' value='<?=$file[$i]?>' size='50'> РРјСЏ (H1)<br>
+	<textarea cols='52' rows='3' name='text_<?=$i?>'></textarea> РўРµРєСЃС‚-РѕРїРёСЃР°РЅРёРµ<br>
+	<input type='text' name='mtitle_<?=$i?>' value='РђРєРєСѓРјСѓР»СЏС‚РѕСЂ Р°РІС‚РѕРјРѕР±РёР»СЊРЅС‹Р№ <?=$file[$i]?>- РґРѕСЃС‚Р°РІРєР°, РЅРёР·РєРёРµ С†РµРЅС‹, РљРёРµРІ Рё РЈРєСЂР°РёРЅР°' size='50'> meta-title<br>
+	<input type='text' name='mdescr_<?=$i?>' value='РђРєРєСѓРјСѓР»СЏС‚РѕСЂ РґР»СЏ Р°РІС‚Рѕ <?=$file[$i]?>. Р”РѕСЃС‚Р°РІРєР° РїРѕ РљРёРµРІСѓ Рё РЈРєСЂР°РЅРµ. РЎРєРёРґРєРё! Р”РѕСЂРѕРіРѕ РєСѓРїРёРј Р’Р°С€ СЃС‚Р°СЂС‹Р№ РђРљР‘.' size='50'> meta-description<br>
+	<input type='text' name='ah_<?=$i?>' value="<?=$arr[$i][2]?>"> Р­РјРєРѕСЃС‚СЊ<br>
+	<input type='text' name='polar_<?=$i?>' value="<?=$polar?>"> РџРѕР»СЏСЂРЅРѕСЃС‚СЊ<br>
+	<input type='text' name='korpus_<?=$i?>' value="<?=$korpus_type?>"> РўРёРї РєРѕСЂРїСѓСЃР°<br>
+	<input type='text' name='sizes_<?=$i?>' value="<?=$dlina?>С…175С…<?=$niz?>"> Р Р°Р·РјРµСЂС‹<br>
+	<input type='text' name='tok_<?=$i?>' value="<?=$arr[$i][4]?>"> РџСѓСЃРєРѕРІРѕР№<br>
 	<br>
 	<hr color="red">
 
 <?php 
-$korpus_type = '';//обнуление переменной
-}//скобка основного цикла for
+$korpus_type = '';//РѕР±РЅСѓР»РµРЅРёРµ РїРµСЂРµРјРµРЅРЅРѕР№
+}//СЃРєРѕР±РєР° РѕСЃРЅРѕРІРЅРѕРіРѕ С†РёРєР»Р° for
 ?>
 	<hr>
 	<input type="submit" name="submit" value="GO">
@@ -110,7 +110,7 @@ include "lib.inc.php";
 		*/
 		
 		if ($res_product){
-			echo "Cтрока №".$i." insert to PRODUCT -> OK!<br>";
+			echo "CС‚СЂРѕРєР° в„–".$i." insert to PRODUCT -> OK!<br>";
 				if ($res_descr){
 					echo "insert to PRODUCT_DESCRIPTION -> OK!<br>";
 						if ($res_cat){
@@ -140,6 +140,6 @@ include "lib.inc.php";
 			echo $err = $res_product;
 		}
 	}
-}//скобка if ($_SERVER['REQUEST_METHOD'] == "POST")
+}//СЃРєРѕР±РєР° if ($_SERVER['REQUEST_METHOD'] == "POST")
 
 ?>
