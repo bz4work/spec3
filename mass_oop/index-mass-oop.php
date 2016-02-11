@@ -1,26 +1,13 @@
 <?php
-error_reporting(-1);
+//error_reporting(-1);
 header ('Content-type: text/html; charset=utf-8');
+require "config.inc.php";
 require "mass.class.php";
-?>
-<form method='post' action='index-mass-oop.php'>
-	<input type='text' name='file_name' value='<?=@$_POST['file_name']?>'> введите название файла<br>
-	<input type='text' name='code_start' value='<?=@$_POST['code_start']?>'> начать нумерацию кода товара с этой цифры <br>
-	<input type='text' name='manufac' value='<?=@$_POST['manufac']?>'> id производителя (11 - Bosch, manufactured)<br>
-	<input type='submit' name='submit' value='go'>
-</form>
-<?php
-if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-$filename = $_POST['file_name'];
-$code_start = $_POST['code_start'];
-$manufac = $_POST['manufac'];
+require "sql.class.php";
+
 $test_obj = new MassInc();
+$sql_obj = new SqlInc();
 $arr = $test_obj->FileToArr($filename);
-/*
-echo '<pre>';
-print_r ($arr);
-echo '</pre>';
-*/
 
 for ($i = 0 ; $i < $arr['count']; ++$i){
 	$options = array(
@@ -56,9 +43,6 @@ for ($i = 0 ; $i < $arr['count']; ++$i){
 	}else{
 		$zero = "?";
 	}
-	/*
-	//<input type='text' name='model_<?=$i?>' value="<?=$code_zero['zero'].$code_zero['num']++?>"> код товара (model) через Класс<br>
-	*/
 ?>
 	<form method='post' action='index-mass-oop.php'>
 		<input type='text' name='model_<?=$i?>' value="<?=$zero, $code_start++?>"> код товара (model)<br>
@@ -76,15 +60,13 @@ for ($i = 0 ; $i < $arr['count']; ++$i){
 
 	<hr color="red">
 <?php
-
 	}//скобка основного цикла FOR
 ?>
-<input type="submit" name="submit" value="GO">
+		<input type="submit" name="submit" value="GO">
 	</form>
 <?php
-	//закрываем основой IF
-	}else{
-		echo 'загрузите файл';
+	if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+		//обработка данных из формы, выполнение запроса к базе, вывод результата работы
+		require "controller.inc.php";
 	}
-
 ?>

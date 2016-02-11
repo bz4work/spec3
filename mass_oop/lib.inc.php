@@ -1,10 +1,9 @@
 <?php
-header ('Content-type: text/html; charset=windows-1251');
 function last_prod_id(){
 	
 }
 
-function sql_prod ($model, $man, $price){
+function sql_prod ($model, $man, $price, $link){
 $sort_order = 99;//сортировка
 $quan = 1000;//количество на складе
 $stock = 7; //есть в наличии
@@ -40,7 +39,7 @@ $sql_prod = "INSERT INTO `product` (`model`,
 									`date_added`, 
 									`date_modified`) 
 							VALUES ('$model', '', '', '', '', '', '', '', $quan, $stock, '', $man, 1, '$price', 0, 0, '2016-01-01', 1, 1, 0.00000000, 0.00000000, 0.00000000, 1, 1, 1, $sort_order, $status, 0, '2016-01-01 00:00:00', '2016-01-01 00:00:00')"; 
-$res_inc_product = mysqli_query($_POST['link'], $sql_prod);
+$res_inc_product = mysqli_query($link, $sql_prod);
 
 if ($res_inc_product)
 	return true;

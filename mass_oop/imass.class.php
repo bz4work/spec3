@@ -16,9 +16,9 @@ interface IMassInc{
 	*	Формирует запросы из полученных данных из формы
 	*	Возвращает переменную $sql_inc типа string с готовым запросом
 	*	Или текст ошибки
-	*	
+	*	function CreateSQLinc($arg);
 	*/
-	function CreateSQLinc($arg);
+	
 	
 	/**
 	*	Принимает сформированный запрос $sql_inc

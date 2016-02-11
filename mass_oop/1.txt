@@ -1,10 +1,3 @@
-﻿Bosch AGM 105Ah R+ 950A
-Bosch AGM 60Ah R+ 680A
-Bosch AGM 70Ah R+ 760A
+﻿Bosch AGM 70Ah R+ 760A
 Bosch AGM 80Ah R+ 800A (низкобазовый) 
 Bosch AGM 95Ah R+ 850A
-Bosch T4 140Ah L+ 800A
-Bosch T5 180Ah L+ 1000A
-Bosch T5 225Ah L+ 1150A
-
-Bosch T5 225Ah L+ 1150A
