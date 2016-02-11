@@ -111,8 +111,12 @@ for ($i = 0 ; $i < $arr['count']; ++$i){
 			
 			
 			/*************** Добавление данных в таблицу product_description - start ******************/	
+			$name = $test_obj->clearData($_POST["name_$i"]);
+			$text = $test_obj->clearData($_POST["text_$i"]);
+			$m_title = $test_obj->clearData($_POST["mtitle_$i"]);
+			$m_descr = $test_obj->clearData($_POST["mdescr_$i"]);
 			
-			$sql_prod_desc = $sql_obj->sql_prod_desc($prod_id, $name, $descr, $m_title, $m_descr);
+			$sql_prod_desc = $sql_obj->sql_prod_desc($prod_id, $name, $text, $m_title, $m_descr);
 			/*
 			if($sql_prod_to_cat){
 				echo "<i>".$sql_prod_to_cat."</i><br><br>";
