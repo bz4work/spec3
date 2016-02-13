@@ -1,6 +1,6 @@
 <?php
 for ($i = 0 ; $i < $arr['count']; ++$i){
-			/****** Р¤РёР»СЊС‚СЂСѓРµРј РІС…РѕРґРЅС‹Рµ РґР°РЅРЅС‹Рµ ******/
+			/****** Фильтруем входные данные ******/
 			$model = $test_obj->clearData($_POST["model_$i"]);
 			$man = $test_obj->clearData($_POST["man_$i"]);
 			$price = $test_obj->clearData($_POST["price_$i"]);
@@ -9,108 +9,108 @@ for ($i = 0 ; $i < $arr['count']; ++$i){
 			$korpus = $test_obj->clearData($_POST["box_type_$i"]);
 			$size = $test_obj->clearData($_POST["size_$i"]);
 			$tok = $test_obj->clearData($_POST["tok_$i"]);
-			/****** Р¤РёР»СЊС‚СЂСѓРµРј РІС…РѕРґРЅС‹Рµ РґР°РЅРЅС‹Рµ ******/
+			/****** Фильтруем входные данные ******/
 			
 			
-			/*************** Р”РѕР±Р°РІР»РµРЅРёРµ РґР°РЅРЅС‹С… РІ С‚Р°Р±Р»РёС†Сѓ product - start ******************/
-			/*************** РћРїРёСЃР°РЅРёРµ РїСЂРёРЅРёРјР°РµРјС‹С… Р·РЅР°С‡РµРЅРёР№ РјРµС‚РѕРґРѕРј ************************
-			** РјРµС‚РѕРґ product РїСЂРёРЅРёРјР°РµС‚ Р·РЅР°С‡РµРЅРёСЏ:
-			** 1e-РєРѕРґ С‚РѕРІР°СЂР°, 2Рµ-РїСЂРѕРёР·РІРѕРґРёС‚РµР»СЊ, 3Рµ-С†РµРЅР°
-			** РЅРµ РѕР±СЊСЏР·Р°С‚РµР»СЊРЅС‹Рµ РїР°СЂР°РјРµС‚СЂС‹:
-			** 4Рµ-СЃРѕСЂС‚РёСЂРѕРІРєР° (default:99), 5Рµ-РєРѕР»РёС‡РµСЃС‚РІРѕ(default:1000), 
-			** 6Рµ-СЃС‚Р°С‚СѓСЃ РЅР°Р»РёС‡РёСЏ (default:7 - Р’ РЅР°Р»РёС‡РёРё), 7Рµ-РІРєР»СЋС‡РёС‚СЊ (1) РёР»Рё РІС‹РєР»СЋС‡РёС‚СЊ (0) РґР»СЏ РІС‹РІРѕРґР° (default:0-РЅРµ РїРѕРєР°Р·С‹РІР°С‚СЊ РЅР° СЃР°Р№С‚Рµ)
-			/*************** РћРїРёСЃР°РЅРёРµ РїСЂРёРЅРёРјР°РµРјС‹С… Р·РЅР°С‡РµРЅРёР№ РјРµС‚РѕРґРѕРј ************************/
+			/*************** Добавление данных в таблицу product - start ******************/
+			/*************** Описание принимаемых значений методом ************************
+			** метод product принимает значения:
+			** 1e-код товара, 2е-производитель, 3е-цена
+			** не обьязательные параметры:
+			** 4е-сортировка (default:99), 5е-количество(default:1000), 
+			** 6е-статус наличия (default:7 - В наличии), 7е-включить (1) или выключить (0) для вывода (default:0-не показывать на сайте)
+			/*************** Описание принимаемых значений методом ************************/
 		
 			$sql_product = $sql_obj->product($model, $man, $price);
 			/*
 			if($sql_product){
 				echo "<i>".$sql_product."</i><br><br>";
 			}else{
-				echo "Р·Р°РїСЂРѕСЃ РЅРµ СЃС„РѕСЂРјРёСЂРѕРІР°РЅ РѕРћ<br>";
+				echo "запрос не сформирован оО<br>";
 			}
 			*/
 			if ($test_obj->IncDB($sql_product)){
-				echo "РўРѕРІР°СЂ <b>".$_POST["name_$i"]."</b>. Р”РѕР±Р°РІР»РµРЅРѕ РІ С‚Р°Р±Р»РёС†Сѓ <b>product</b>  OK.<br><br>";
+				echo "Товар <b>".$_POST["name_$i"]."</b>. Добавлено в таблицу <b>product</b>  OK.<br><br>";
 			}else{
 				echo $test_obj->IncDB($sql_product);
 			}
-			/*************** Р”РѕР±Р°РІР»РµРЅРёРµ РґР°РЅРЅС‹С… РІ С‚Р°Р±Р»РёС†Сѓ product - end ******************/
+			/*************** Добавление данных в таблицу product - end ******************/
 	
 			$prod_id = $test_obj->get_prod_id();
 			//echo "$prod_id"."<<- <br>";
 			
-			/*************** Р”РѕР±Р°РІР»РµРЅРёРµ РґР°РЅРЅС‹С… РІ С‚Р°Р±Р»РёС†Сѓ product_attribute - start ******************/
+			/*************** Добавление данных в таблицу product_attribute - start ******************/
 			$sql_prod_attr = $sql_obj->product_attr($ah, $polar, $korpus, $size, $tok, $prod_id);
 			/*
 			if($sql_prod_attr){
 				echo "<i>".$sql_prod_attr."</i><br><br>";
 			}else{
-				echo "Р·Р°РїСЂРѕСЃ РЅРµ СЃС„РѕСЂРјРёСЂРѕРІР°РЅ РѕРћ<br>";
+				echo "запрос не сформирован оО<br>";
 			}
 			*/
 			if ($test_obj->IncDB($sql_prod_attr)){
-				echo "РўРѕРІР°СЂ <b>".$_POST["name_$i"]."</b>. Р”РѕР±Р°РІР»РµРЅРѕ РІ С‚Р°Р±Р»РёС†Сѓ <b>product_attribute</b>.  OK<br><br>";
+				echo "Товар <b>".$_POST["name_$i"]."</b>. Добавлено в таблицу <b>product_attribute</b>.  OK<br><br>";
 			}else{
 				echo $test_obj->IncDB($sql_prod_attr);
 			}
-			/*************** Р”РѕР±Р°РІР»РµРЅРёРµ РґР°РЅРЅС‹С… РІ С‚Р°Р±Р»РёС†Сѓ product_attribute - end ******************/
+			/*************** Добавление данных в таблицу product_attribute - end ******************/
 			
 			
 			
-			/*************** Р”РѕР±Р°РІР»РµРЅРёРµ РґР°РЅРЅС‹С… РІ С‚Р°Р±Р»РёС†Сѓ product_to_category - start ******************/			
+			/*************** Добавление данных в таблицу product_to_category - start ******************/			
 			$sql_prod_to_cat = $sql_obj->product_to_category($prod_id);
 			/*
 			if($sql_prod_to_cat){
 				echo "<i>".$sql_prod_to_cat."</i><br><br>";
 			}else{
-				echo "Р·Р°РїСЂРѕСЃ РЅРµ СЃС„РѕСЂРјРёСЂРѕРІР°РЅ РѕРћ<br>";
+				echo "запрос не сформирован оО<br>";
 			}
 			*/
 			if ($test_obj->IncDB($sql_prod_to_cat)){
-				echo "РўРѕРІР°СЂ <b>".$_POST["name_$i"]."</b>. Р”РѕР±Р°РІР»РµРЅРѕ РІ С‚Р°Р±Р»РёС†Сѓ <b>product_to_category</b>  OK.<br><br>";
+				echo "Товар <b>".$_POST["name_$i"]."</b>. Добавлено в таблицу <b>product_to_category</b>  OK.<br><br>";
 			}else{
 				echo $test_obj->IncDB($sql_prod_to_cat);
 			}
-			/*************** Р”РѕР±Р°РІР»РµРЅРёРµ РґР°РЅРЅС‹С… РІ С‚Р°Р±Р»РёС†Сѓ product_attribute - end ******************/
+			/*************** Добавление данных в таблицу product_attribute - end ******************/
 			
 			
 			
-			/*************** Р”РѕР±Р°РІР»РµРЅРёРµ РґР°РЅРЅС‹С… РІ С‚Р°Р±Р»РёС†Сѓ product_to_layout - start ******************/			
+			/*************** Добавление данных в таблицу product_to_layout - start ******************/			
 			$sql_prod_to_lay = $sql_obj->product_to_layout($prod_id);
 			/*
 			if($sql_prod_to_cat){
 				echo "<i>".$sql_prod_to_cat."</i><br><br>";
 			}else{
-				echo "Р·Р°РїСЂРѕСЃ РЅРµ СЃС„РѕСЂРјРёСЂРѕРІР°РЅ РѕРћ<br>";
+				echo "запрос не сформирован оО<br>";
 			}
 			*/
 			if ($test_obj->IncDB($sql_prod_to_lay)){
-				echo "РўРѕРІР°СЂ <b>".$_POST["name_$i"]."</b>. Р”РѕР±Р°РІР»РµРЅРѕ РІ С‚Р°Р±Р»РёС†Сѓ <b>product_to_layout</b>  OK.<br><br>";
+				echo "Товар <b>".$_POST["name_$i"]."</b>. Добавлено в таблицу <b>product_to_layout</b>  OK.<br><br>";
 			}else{
 				echo $test_obj->IncDB($sql_prod_to_lay);
 			}
-			/*************** Р”РѕР±Р°РІР»РµРЅРёРµ РґР°РЅРЅС‹С… РІ С‚Р°Р±Р»РёС†Сѓ product_to_layout - end ******************/
+			/*************** Добавление данных в таблицу product_to_layout - end ******************/
 			
 			
 			
-			/*************** Р”РѕР±Р°РІР»РµРЅРёРµ РґР°РЅРЅС‹С… РІ С‚Р°Р±Р»РёС†Сѓ product_to_store - start ******************/			
+			/*************** Добавление данных в таблицу product_to_store - start ******************/			
 			$sql_prod_to_store = $sql_obj->product_to_store($prod_id);
 			/*
 			if($sql_prod_to_cat){
 				echo "<i>".$sql_prod_to_cat."</i><br><br>";
 			}else{
-				echo "Р·Р°РїСЂРѕСЃ РЅРµ СЃС„РѕСЂРјРёСЂРѕРІР°РЅ РѕРћ<br>";
+				echo "запрос не сформирован оО<br>";
 			}
 			*/
 			if ($test_obj->IncDB($sql_prod_to_store)){
-				echo "РўРѕРІР°СЂ <b>".$_POST["name_$i"]."</b>. Р”РѕР±Р°РІР»РµРЅРѕ РІ С‚Р°Р±Р»РёС†Сѓ <b>product_to_store</b>  OK.<br><br>";
+				echo "Товар <b>".$_POST["name_$i"]."</b>. Добавлено в таблицу <b>product_to_store</b>  OK.<br><br>";
 			}else{
 				echo $test_obj->IncDB($sql_prod_to_store);
 			}
-			/*************** Р”РѕР±Р°РІР»РµРЅРёРµ РґР°РЅРЅС‹С… РІ С‚Р°Р±Р»РёС†Сѓ product_to_store - end ******************/
+			/*************** Добавление данных в таблицу product_to_store - end ******************/
 			
 			
-			/*************** Р”РѕР±Р°РІР»РµРЅРёРµ РґР°РЅРЅС‹С… РІ С‚Р°Р±Р»РёС†Сѓ product_description - start ******************/	
+			/*************** Добавление данных в таблицу product_description - start ******************/	
 			$name = $test_obj->clearData($_POST["name_$i"]);
 			$text = $test_obj->clearData($_POST["text_$i"]);
 			$m_title = $test_obj->clearData($_POST["mtitle_$i"]);
@@ -121,16 +121,16 @@ for ($i = 0 ; $i < $arr['count']; ++$i){
 			if($sql_prod_to_cat){
 				echo "<i>".$sql_prod_to_cat."</i><br><br>";
 			}else{
-				echo "Р·Р°РїСЂРѕСЃ РЅРµ СЃС„РѕСЂРјРёСЂРѕРІР°РЅ РѕРћ<br>";
+				echo "запрос не сформирован оО<br>";
 			}
 			*/
 			if ($test_obj->IncDB($sql_prod_desc)){
-				echo "РўРѕРІР°СЂ <b>".$_POST["name_$i"]."</b>. Р”РѕР±Р°РІР»РµРЅРѕ РІ С‚Р°Р±Р»РёС†Сѓ <b>product_description</b>  OK.<br><br>";
+				echo "Товар <b>".$_POST["name_$i"]."</b>. Добавлено в таблицу <b>product_description</b>  OK.<br><br>";
 			}else{
 				echo $test_obj->IncDB($sql_prod_desc);
 			}
-			/*************** Р”РѕР±Р°РІР»РµРЅРёРµ РґР°РЅРЅС‹С… РІ С‚Р°Р±Р»РёС†Сѓ product_description - end ******************/
+			/*************** Добавление данных в таблицу product_description - end ******************/
 			
 			echo "<hr color = 'green'>";
-}//СЃРєРѕР±РєР° РѕСЃРЅРѕРІРЅРѕРіРѕ С†РёРєР»Р° FOR
+}//скобка основного цикла FOR
 ?>
