@@ -22,5 +22,24 @@ echo '<pre>';
 print_r($big);
 echo '</pre><hr>';
 
-$file = file('');
+$file = file('file_dlya_sravneniya.txt');
+$cnt_file = count($file);
+
+echo '<pre>';
+print_r($file);
+echo '</pre><hr>';
+
+for ($i = 0; $i < $cnt_file; $i++){
+	$str = explode("*",$file[$i]);
+	echo '<hr>';
+	print_r($a);
+	echo '<hr>';
+	$iskomoe = $str[1];
+	echo 'Искомое значение: '.$iskomoe;
+	$res = array_search($iskomoe, $big[$i]);
+	if ($res){
+		echo '<br>Совпадение в ячейке: '.$res.'<br>';
+		//echo "Код товара который нужно заменить: "$big[$i][$res]."<br>";
+	}
+}
 ?>
