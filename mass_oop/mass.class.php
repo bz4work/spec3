@@ -26,7 +26,7 @@ class MassInc implements IMassInc{
 		return $arr;
 	}
 	function IncDB($sql_inc){
-		if (!$this->_db->connect_error){//Ð¿Ñ€Ð¾Ð²ÐµÑ€Ð¸Ñ‚ÑŒ ÑƒÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½Ð¾ Ð»Ð¸ ÑÐ¾ÐµÐ´Ð¸Ð½ÐµÐ½Ð¸Ðµ Ñ Ð±Ð°Ð·Ð¾Ð¹
+		if (!$this->_db->connect_error){//ïðîâåðèòü óñòàíîâëåíî ëè ñîåäèíåíèå ñ áàçîé
 			
 			if ($this->_db->query($sql_inc)){
 				return true;
@@ -47,16 +47,16 @@ class MassInc implements IMassInc{
 	}
 	function searchBoxType($arrayOptions, $array){
 		if ($key = array_search("$arrayOptions[0]", $array)){
-			$res ['type'] = 'Ð•Ð²Ñ€Ð¾';
+			$res ['type'] = 'Åâðî';
 			$res ['polar'] = 'R+';
 		}elseif ($key = array_search("$arrayOptions[1]", $array)){
-			$res ['type'] = 'Ð•Ð²Ñ€Ð¾';
+			$res ['type'] = 'Åâðî';
 			$res ['polar'] = 'L+';
 		}elseif ($key = array_search("$arrayOptions[2]", $array)){
-			$res ['type'] = 'ÐÐ·Ð¸Ñ';
+			$res ['type'] = 'Àçèÿ';
 			$res ['polar'] = 'JR+';
 		}elseif ($key = array_search("$arrayOptions[3]", $array)){
-			$res ['type'] = 'ÐÐ·Ð¸Ñ';
+			$res ['type'] = 'Àçèÿ';
 			$res ['polar'] = 'JL+';
 		}else{
 			$res = '';
@@ -95,10 +95,10 @@ class MassInc implements IMassInc{
 			return $lenght = '000';
 		}
 	}
-	//Ð²Ð¾Ð·Ð²Ñ€Ð°Ñ‰Ð°ÐµÑ‚ Ð·Ð°Ð¿Ñ€Ð¾Ñ ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ð¹ Ð²Ñ‹Ð±ÐµÑ€Ð°ÐµÑ‚ Ð¿Ð¾ÑÐ»ÐµÐ´Ð½Ð¸Ð¹ id Ð¸Ð· Ñ‚Ð°Ð±Ð»Ð¸Ñ†Ñ‹ product
+	//âîçâðàùàåò çàïðîñ êîòîðûé âûáåðàåò ïîñëåäíèé id èç òàáëèöû product
 	function get_prod_id(){
 		$select_prod_id = "SELECT product_id FROM product ORDER BY product_id DESC LIMIT 1";
-		if (!$this->_db->connect_error){//Ð¿Ñ€Ð¾Ð²ÐµÑ€Ð¸Ñ‚ÑŒ ÑƒÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½Ð¾ Ð»Ð¸ ÑÐ¾ÐµÐ´Ð¸Ð½ÐµÐ½Ð¸Ðµ Ñ Ð±Ð°Ð·Ð¾Ð¹
+		if (!$this->_db->connect_error){//ïðîâåðèòü óñòàíîâëåíî ëè ñîåäèíåíèå ñ áàçîé
 			if ($res = $this->_db->query($select_prod_id)){
 				foreach ($res as $arr){
 					foreach ($arr as $last_id){
@@ -113,5 +113,5 @@ class MassInc implements IMassInc{
 		}
 	}
 
-}//Ð·Ð°ÐºÑ€Ñ‹Ð²Ð°ÑŽÑ‰Ð°Ñ ÑÐºÐ¾Ð±ÐºÐ° ÐºÐ»Ð°ÑÑÐ°
+}//çàêðûâàþùàÿ ñêîáêà êëàññà
 ?>

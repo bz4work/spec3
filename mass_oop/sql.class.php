@@ -1,6 +1,6 @@
 <?php
 class SqlInc{
-	function product($model, $man, $price, $sort_order = 99, $quan = 1000, $stock = 7, $status = 0){
+	function product($model, $man, $price, $sort_order = 99, $quan = 1000, $stock = 7, $status = 1){
 		//$sort_order = 99;//сортировка
 		//$quan = 1000;//количество на складе
 		//$stock = 7; //есть в наличии
@@ -37,7 +37,7 @@ class SqlInc{
 											`date_modified`) 
 									VALUES ('$model', '', '', '', '', '', '', '', $quan, $stock, '', $man, 1, '$price', 0, 0, '2016-01-01', 1, 1, 0.00000000, 0.00000000, 0.00000000, 1, 1, 1, $sort_order, $status, 0, '2016-01-01 00:00:00', '2016-01-01 00:00:00')"; 
 		return $sql_prod;
-	}//скобка метода	
+	}	
 	function product_attr($ah, $polar, $korpus, $sizes, $tok, $prod_id, $lang = 2){
 		//$attr_id = 0;//id атрибута
 		//$lang = 2;//язык, русский - 2
@@ -49,10 +49,11 @@ class SqlInc{
 										($prod_id, 16, $lang, '$tok');";
 		return $sql_prod_attr;
 	}
-	function product_to_category($prod_id, $cat_id = 59){
-		//$cat_id = 59;//авто аккумуляторы
+	function product_to_category($prod_id, $cat_id = 59, $cat_id2 = 64){
+		//основная категория        $cat_id = 59;   //авто аккумуляторы
+		//подкатегория по бренду    $cat_id2 = 59;  //авто аккумуляторы "название_бренда"
 		$sql_prod_cat = "INSERT INTO `product_to_category` (`product_id`, `category_id`) 
-						VALUES ($prod_id, $cat_id);";
+						VALUES ($prod_id, $cat_id), ($prod_id, $cat_id2);";
 		return $sql_prod_cat;
 	}
 	function product_to_layout($prod_id, $store = 0, $lay = 0){

@@ -1,0 +1,37 @@
+Varta Black Dynamic 45Ah L+ 400A
+Varta Black Dynamic 45Ah R+ 400A
+Varta Black Dynamic 56Ah L+ 480A
+Varta Black Dynamic 56Ah R+ 480A
+Varta Blue Dynamic 40Ah JL+ 330A
+Varta Blue Dynamic 40Ah JR+ 330A
+Varta Blue Dynamic 45Ah JL+ 330A
+Varta Blue Dynamic 45Ah JL+ 330A (тонкая клемма)
+Varta Blue Dynamic 60Ah JL+ 540A
+Varta Blue Dynamic 60Ah JR+ 540A
+Varta Blue Dynamic 60Ah L+ 540A
+Varta Blue Dynamic 60Ah R+ 540A
+Varta Blue Dynamic 60Ah R+ 540A (низкобазовый)
+Varta Blue Dynamic 70Ah JL+ 630A
+Varta Blue Dynamic 70Ah JR+ 630A
+Varta Blue Dynamic 72Ah R+ 680A (низкобазовый)
+Varta Blue Dynamic 74Ah L+ 680A
+Varta Blue Dynamic 74Ah R+ 680A
+Varta Blue Dynamic 80Ah R+ 740A (низкобазовый)
+Varta Blue Dynamic 95Ah JL+ 830A
+Varta Blue Dynamic 95Ah JR+ 830A
+Varta Blue Dynamic 95Ah R+ 800A
+Varta Silver Dynamic 52Ah R+ 520A (низкобазовый)
+Varta Silver Dynamic 54Ah R+ 530A
+Varta Silver Dynamic 61Ah R+ 600A (низкобазовый)
+Varta Silver Dynamic 63Ah L+ 610A
+Varta Silver Dynamic 63Ah R+ 610A
+Varta Silver Dynamic 74Ah R+ 750A (низкобазовый)
+Varta Silver Dynamic 77Ah R+ 780A
+Varta Silver Dynamic 85Ah R+ 800A (низкобазовый)
+Varta Silver Dynamic 100Ah R+ 830A
+Varta Silver Dynamic 110Ah R+ 920A
+Varta Silver Dynamic AGM 60Ah R+ 680A
+Varta Silver Dynamic AGM 70Ah R+ 760A
+Varta Silver Dynamic AGM 80Ah R+ 800A
+Varta Silver Dynamic AGM 95Ah R+ 850A
+Varta Silver Dynamic AGM 105Ah R+ 950A
