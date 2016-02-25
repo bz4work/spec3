@@ -1,11 +1,7 @@
-<html>
-	<head>
-		<title></title>
-	</head>
-	<body>
-		<h1><font color="red">Такой страницы не существует</font></h1>
-		<font color="blue">[./template/default/errors/404.tpl]</font>
-		
-		
-	</body>
-</html>
+
+<h1>this is <font color="blue">[./template/default/catalog/</font><font color="red">cat.tpl]</font></h1>
+	<hr color="grey">
+	<div id="content">
+		<!-- Выводим данные из 404.php или просто тут создаем страницу 404 и отдаем-->
+		Такой страницы не существует
+	</div>

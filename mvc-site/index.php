@@ -8,6 +8,7 @@ include "./var.php";
 include "./libs/all.php";
 
 
-include_once "./template/".TEMPLATE."/index.tpl";
+
 include_once "./controller/".$_GET['mod']."/".$_GET['page'].".php";
+include_once "./template/".TEMPLATE."/index.tpl";
 ?>

@@ -1,7 +1,7 @@
 <?php
 error_reporting(-1);
 header('Content-Type: text/html; charset=utf-8');
-session_start();
+
 
 
 $allowed = array('main','contacts','aboutus','game1','program1','file1','404');
@@ -12,7 +12,7 @@ if(!in_array($_GET['page'],$allowed)) {
 }
 
 
-include $_GET['page'].'.php';
+//include $_GET['page'].'.php';
 
 
 
