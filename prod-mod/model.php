@@ -1,14 +1,14 @@
 <?php
 /* Массив с моделями выгруженный из БД сайта */
-include "petex.php";
+include "/arrays_MySQL/egr.php";
 
 //количество моделей из БД
 $cnt = count($petex);
 
 //Все символы в ячейке делаем  ЗАГЛАВНЫМИ буквами и сохраняем в ту же ячейку
 for ($i = 0; $i < $cnt; $i++){
-	$res = mb_strtoupper($petex[$i]['name']);
-	$petex[$i]['name'] = $res;
+	//$res = mb_strtoupper($petex[$i]['name']);
+	//$petex[$i]['name'] = $res;
 	
 	//разбиваем строку с моделью на массив по пробелу 
 	$petex[$i]['name'] = explode(' ', $petex[$i]['name']);
@@ -25,7 +25,7 @@ echo '</pre>';
 /************************************************/
 /* Конвертируем файл в массив */
 
-$file = file('petex.txt');
+$file = file('./txt_from_excel/egr-kapot.txt');
 $cnt_file = count($file);
 
 //пустой массив для сохраненния в него моделей
@@ -54,6 +54,7 @@ echo '</pre>';
 function search ($iskomoe, $mass){
 		$arr = array_intersect($iskomoe, $mass);
 		$res = count($arr);
+		//if ($res >= 4)
 		if ($res >= 4)
 			return true;
 		else

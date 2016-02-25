@@ -1,0 +1,99 @@
+@charset "utf-8";
+
+/*RESET CSS*/
+html{color:#333;background:white; font-family:Verdana, Geneva, sans-serif;}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,select,p,blockquote,th,td{margin:0;padding:0;vertical-align:middle;line-height:20px; font-size:14px;}
+table{border-collapse:collapse;border-spacing:0}
+fieldset,img{border:0}
+address,button,caption,cite,code,dfn,em,input,optgroup,option,select,strong,textarea,th,var{font:inherit}
+del,ins{text-decoration:none}
+li{list-style:none}
+caption,th{text-align:left}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}
+q:before,q:after{content:''}
+abbr,acronym{border:0;font-variant:normal}
+sup{vertical-align:baseline}
+sub{vertical-align:baseline}
+legend{color:#000}
+
+/* STANDARD STYLES */
+a {outline:none; color:#2446AA; text-decoration:underline;}
+a:hover {text-decoration:none; color:#1F1E48;} 
+.clear {clear: both;}
+h1 {
+	font-size:18px;
+	color:#464646;
+	font-weight:bold;
+	padding-top:10px;
+}
+
+.orange {color:#df5f02}
+.orange2 {color:#ff8328}
+.grey {color:#888}
+.red {color:#900}
+.green {color:#060}
+.bronze {color:#525252;}
+.silver {color:#c61d1d;}
+.gold {color:#e95014;}
+.plat {color:#083f64;}
+.blue {color: #29709c;}
+.size8{font-size:8px}
+.size10{font-size:10px}
+.size12{font-size:12px}
+.size14{font-size:14px}
+.size16{font-size:16px}
+.size18{font-size:18px}
+.size20{font-size:20px}
+.size22{font-size:22px}
+.size24{font-size:24px}
+.bold{font-weight:bold}
+.em {font-style:italic;}
+.w1000 {width:1000px;}
+.w1000 * {
+	line-height:22px;
+}
+
+/* PAGE: INDEX */
+
+.body {
+	margin: 0 auto;
+	width:1000px;
+	border:1px solid #CCC;
+	background-color:white;
+}
+.inbody {
+	padding:30px;
+}
+.menu {
+	padding:10px;
+}
+.menu label {
+	margin-left:15px;
+	margin-right:10px;
+}
+.video_div {
+	padding:5px;
+}
+ul,li {
+	list-style-type:circle;
+	padding-left:5px;
+	margin-left:20px;
+	font-size:12px;
+}
+.homework_title {
+	padding-top:12px;
+}
+.homework_text {
+	padding: 10px 10px 10px 30px;
+	font-size:12px;
+}
+.blocks {
+	background-color:#EEE;
+	margin:10px; padding:15px;
+
+	border: 3px solid #DDD !important;
+	position: relative;
+	-moz-border-radius: 20px;
+	-webkit-border-radius: 20px;
+	border-radius: 20px;
+}
