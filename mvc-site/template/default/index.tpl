@@ -8,7 +8,7 @@
 		
 		<div>
 			<!-- верхнее меню -->
-			<a href="index.php">Главная</a>&nbsp;&nbsp;<a href="index.php?mod=catalog&page=cat">Каталог</a>&nbsp;&nbsp;<a href="index.php?mod=contact&page=contact">Контакты</a>&nbsp;&nbsp;<a href="index.php?mod=errors&page=404">404</a>
+			<a href="index.php">Главная</a>&nbsp;&nbsp;<a href="index.php?mod=catalog&page=cat">Каталог</a>&nbsp;&nbsp;<a href="index.php?mod=contact&page=contact">Контакты</a>&nbsp;&nbsp;<a href="index.php?mod=errors&page=404">404</a>&nbsp;&nbsp;<a href="index.php?mod=admin&page=adm">Админка</a>
 		</div>
 		<hr color="grey">
 		<div id="content">

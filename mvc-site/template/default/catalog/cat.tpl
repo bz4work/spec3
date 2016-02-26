@@ -5,24 +5,16 @@
 		 <?php include './controller/catalog/cat.php'; ?>
 		
 		<form action="" method="post">
-			<input type="submit" name="go" value="GO!">
-		</form>
-		<form action="" method="post">
-		   <p><select size="7" name="menu[]">
-			<option disabled>Выберите героя</option>
-			<option value="10" <?php if ($select = 10) echo 'selected';?>>Категория 10</option>
-			<option value="5" <?php if ($select = 5) echo 'selected';?>>Категория 5</option>
-			<option value="Шапокляк">Шапокляк</option>
-			<option value="Крыса Лариса">Крыса Лариса</option>
+		   <p><select size="7" multiple name="menu[]">
+			<option disabled>Выберите категорию</option>
+			<option value="all" <?=@$selected['all']?>>Все товары(0)</option>
+			<option value="notebook" <?=@$selected['notebook']?>>Ноуты (5)</option>
+			<option value="smartphone" <?=@$selected['smartphone']?>>Смарты (10)</option>
 		   </select></p>
-		   <p><input type="submit" name="go" value="GO"></p>
+		   <p><input type="submit" name="submit" value="GO"></p>
 		</form>
-		<?php 
-		echo '<pre>';
-		print_r($_POST);
-		echo '</pre>';
-		?>
-		<table border="1">
+
+		<table border="1" width="50%">
 		<tr>
 			<th>Название</th>
 			<th>Фото</th>

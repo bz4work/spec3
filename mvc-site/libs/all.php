@@ -6,9 +6,10 @@ class Goods{
 	}
 	
 	function getGoods($cat = 0){
-		$sql = "SELECT * FROM goods;";
 		if ($cat > 0){
 			$sql = "SELECT * FROM goods WHERE category = $cat;";
+		}else{
+			$sql = "SELECT * FROM goods;";
 		}
 		
 		if ($result = $this->_db->query($sql)) {
@@ -17,6 +18,20 @@ class Goods{
 			}
 			return $res;
 		}
+	}
+	
+	function auth($log, $pass){
+		$sql = "SELECT id, login, pass FROM users WHERE login = $log LIMIT 1;";
+		if ($result = $this->_db->query($sql)) {
+			//если есть результат выполняем проверку пароля
+			$data = mysqli_fetch_assoc($result);
+				return $data;
+		}else{
+			//пользователь не найден в БД
+			//возвращаем false
+			return false;
+		}
+		
 	}
 }
 
