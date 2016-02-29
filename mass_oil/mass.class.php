@@ -29,20 +29,17 @@ class MassInc implements IMassInc{
 	function IncDB($sql_inc){
 		//выполнение запроса в Ѕƒ
 		if (!$this->_db->connect_error){//проверить установлено ли соединение с базой
-			
 			if ($this->_db->query($sql_inc)){
 				return true;
 			}else{
 				return $this->_db->error;
 			}
-			
 		}else{
 			return $this->_db->connect_error;
 		}
 	}
 	function searchInArr($str, $array){
 		//поиск строки "(низкобазовый)"
-		
 		$key = array_search("$str", $array);
 		if ($key){
 			$height = '175';
@@ -53,6 +50,7 @@ class MassInc implements IMassInc{
 		}
 	}
 	function searchBoxType($array){
+		//¬ходные параметры 
 		$options = array(
 					0 => 'R+',
 					1 => 'L+',
@@ -129,6 +127,7 @@ class MassInc implements IMassInc{
 		}
 	}
 	function productCode($code_start){
+		//вывод правильного кол-ва нолей перед кодо товара
 		if ($code_start <= 9){
 			return $zero = "0000";
 		}elseif($code_start <= 99){
@@ -144,4 +143,14 @@ class MassInc implements IMassInc{
 		}
 	}
 }//закрывающа€ скобка класса
+
+class MainOil extends MassInc {
+	function price ($element){
+		
+		
+		
+		return $price;
+	}
+}
+
 ?>

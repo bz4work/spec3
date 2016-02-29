@@ -5,22 +5,28 @@ require "config.inc.php";
 require "mass.class.php";
 require "sql.class.php";
 
-$test_obj = new MassInc();
+$oil = new MainOil();
 $sql_obj = new SqlInc();
-$arr = $test_obj->FileToArr($filename);
+$arr = $oil->FileToArr($filename);
 
 for ($i = 0 ; $i < $arr['count']; ++$i){
-	$height = $test_obj->searchInArr('(низкобазовый)', $arr[$i]);
-	$boxType = $test_obj->searchBoxType($arr[$i]);
-	$ah = $test_obj->capacityAh($arr[$i]);
-	$tok = $test_obj->startCurrent($arr[$i]);
-	$lenght = $test_obj->lenghts($arr[$i][$ah]);
-	$zero = $test_obj->productCode($code_start);
+	/*
+	$height = $oil->searchInArr('(низкобазовый)', $arr[$i]);
+	$boxType = $oil->searchBoxType($arr[$i]);
+	$ah = $oil->capacityAh($arr[$i]);
+	$tok = $oil->startCurrent($arr[$i]);
+	$lenght = $oil->lenghts($arr[$i][$ah]);
+	*/
+	
+	$zero = $oil->productCode($code_start);
+	
+	//$price = $oil->price($arr[$i]);
+	
 ?>
 	<form method='post' action='index-mass-oop.php'>
 		<input type='text' name='model_<?=$i?>' value="<?=$zero, $code_start++?>"> код товара (model)<br>
 		<input type='text' name='man_<?=$i?>' value='<?=$manufac?>'> Производитель (11 - Bosch, manufactured)<br>
-		<input type='text' name='price_<?=$i?>' value='1500'> Цена<br>
+		<input type='text' name='price_<?=$i?>' value='<?=$price?>'> Цена<br>
 		<input type="text" name="name_<?=$i?>" value="<?=rtrim($arr['file'][$i])?>"> H1 - Название<br>
 		<input type='text' name='mtitle_<?=$i?>' value='Аккумулятор автомобильный <?=rtrim($arr['file'][$i])?> - доставка, низкие цены, Киев и Украина' size='50'> meta-title<br>
 		<input type='text' name='mdescr_<?=$i?>' value='Аккумулятор для авто <?=rtrim($arr['file'][$i])?>. Доставка по Киеву и Укране. Скидки! Дорого купим Ваш старый АКБ.' size='50'> meta-description<br>
