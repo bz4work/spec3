@@ -1,0 +1,11 @@
+Basic
+35 asia - 187x129x227
+40 euro - 175x175x190
+45 asia - 238x129x227
+53 euro - 242x175x175
+68 asia - 260x175x220
+91 aisa - 305x175x220
+
+Start
+45 asia - 219x135x225
+56 euro - 242x175x190

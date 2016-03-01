@@ -1,0 +1,33 @@
+Berga Basic-Block 35Ah JL+ 300A
+Berga Basic-Block 35Ah JR+ 300A
+Berga Basic-Block 40Ah R+ 340A
+Berga Basic-Block 45Ah JL+ 330A (тонкая клемма)
+Berga Basic-Block 45Ah JR+ 330A (тонкая клемма)
+Berga Basic-Block 53Ah R+ 470A (низкобазовый) 
+Berga Basic-Block 60Ah JR+ 510A
+Berga Basic-Block 60Ah JL+ 510A
+Berga Basic-Block 60Ah L+ 540A
+Berga Basic-Block 60Ah R+ 540A
+Berga Basic-Block 68Ah JL+ 550A
+Berga Basic-Block 68Ah JR+ 550A
+Berga Basic-Block 70Ah R+ 640A (низкобазовый) 
+Berga Basic-Block 74Ah R+ 680A
+Berga Basic-Block 91Ah JR+ 740A
+Berga Basic-Block 91Ah JL+ 740A
+Berga Basic-Block 95Ah R+ 800A
+Berga Start-Block 45Ah L+ 400A
+Berga Start-Block 45Ah R+ 400A
+Berga Start-Block 45Ah JL+ 300A
+Berga Start-Block 45Ah JR+ 300A
+Berga Start-Block 56Ah R+ 480A
+Berga Start-Block 56Ah L+ 480A
+Berga Start-Block 70Ah R+ 640A
+Berga Start-Block 90Ah R+ 720A
+Berga Power 44Ah R+ 440A (низкобазовый) 
+Berga Power 54Ah R+ 530A
+Berga Power 60Ah R+ 540A (низкобазовый) 
+Berga Power 63Ah R+ 610A
+Berga Power 72Ah R+ 680A (низкобазовый) 
+Berga Power 77Ah R+ 780A
+Berga Power 80Ah R+ 740A (низкобазовый) 
+Berga Power 100Ah R+ 830A

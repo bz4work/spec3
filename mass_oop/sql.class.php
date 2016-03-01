@@ -39,7 +39,6 @@ class SqlInc{
 		return $sql_prod;
 	}	
 	function product_attr($ah, $polar, $korpus, $sizes, $tok, $prod_id, $lang = 2){
-		//$attr_id = 0;//id атрибута
 		//$lang = 2;//язык, русский - 2
 		$sql_prod_attr = "INSERT INTO `product_attribute` (`product_id`, `attribute_id`, `language_id`, `text`) 
 								VALUES ($prod_id, 12, $lang, '$ah'),
