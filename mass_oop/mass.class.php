@@ -37,22 +37,21 @@ class MassInc implements IMassInc{
 			}
 			
 		}else{
-			return $this->_db->connect_error;
+			return $this->_db->connect_error();
 		}
 	}
-	function searchInArr($str, $array){
-		//поиск строки "(низкобазовый)"
-		
+	private function searchInArr($array){
+		//поиск строки "(низкобазовый)" в массиве
+		//если найдено - высота 175мм, если нет - 190мм
+		$str = "(низкобазовый)";
 		$key = array_search("$str", $array);
 		if ($key){
-			$height = '175';
-			return $height;
+			return $height = '175';
 		}else{
-			$height = '190';
-			return $height;
+			return $height = '190';
 		}
 	}
-	function searchBoxType($array){
+	function searchBoxType($array, $ah){
 		$options = array(
 					0 => 'R+',
 					1 => 'L+',
@@ -62,15 +61,23 @@ class MassInc implements IMassInc{
 		if ($key = array_search("$options[0]", $array)){
 			$res ['type'] = '≈вро';
 			$res ['polar'] = 'R+';
+			$res ['lenght'] = $this->lenghts($ah);
+			$res ['height'] = $this->searchInArr($array);
 		}elseif ($key = array_search("$options[1]", $array)){
 			$res ['type'] = '≈вро';
 			$res ['polar'] = 'L+';
+			$res ['lenght'] = $this->lenghts($ah);
+			$res ['height'] = $this->searchInArr($array);
 		}elseif ($key = array_search("$options[2]", $array)){
 			$res ['type'] = 'јзи€';
 			$res ['polar'] = 'JR+';
+			$res ['lenght'] = $this->lenght_asia_type($ah);
+			$res ['height'] = '220';
 		}elseif ($key = array_search("$options[3]", $array)){
 			$res ['type'] = 'јзи€';
 			$res ['polar'] = 'JL+';
+			$res ['lenght'] = $this->lenght_asia_type($ah);
+			$res ['height'] = '220';
 		}else{
 			$res = '';
 		}
@@ -107,6 +114,23 @@ class MassInc implements IMassInc{
 			return $lenght = '353';
 		}elseif ($capacity > 105 && $capacity < 120){
 			return $lenght = '393';
+		}else{
+			return $lenght = '000';
+		}
+	}
+	private function lenght_asia_type($capacity){
+		//определение длинны на основе емкости
+		$capacity = (int)$capacity;
+		if ($capacity < 36){
+			return $lenght = '187';
+		}elseif ($capacity > 44 && $capacity < 51){
+			return $lenght = '238';
+		}elseif ($capacity > 54 && $capacity < 66){
+			return $lenght = '230';
+		}elseif ($capacity > 66 && $capacity < 86){
+			return $lenght = '265';
+		}elseif ($capacity > 89 && $capacity < 106){
+			return $lenght = '305';
 		}else{
 			return $lenght = '000';
 		}
