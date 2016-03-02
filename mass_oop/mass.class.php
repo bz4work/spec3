@@ -142,6 +142,7 @@ class MassInc implements IMassInc{
 			if ($res = $this->_db->query($select_prod_id)){
 				foreach ($res as $arr){
 					foreach ($arr as $last_id){
+						$last_id = (int)$last_id;
 						return $last_id;
 					}
 				}

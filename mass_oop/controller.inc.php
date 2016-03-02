@@ -52,7 +52,7 @@ for ($i = 0 ; $i < $arr['count']; ++$i){
 			if ($test_obj->IncDB($sql_prod_to_cat)){
 				$res_query[] = "Товар <b>".$_POST["name_$i"]."</b>. Добавлено в таблицу <b>product_to_category</b>  OK.<br><br>";
 			}else{
-				$res_query[] = $test_obj->IncDB($sql_prod_to_cat);
+				$res_query[] = "Не добавлено: ".$test_obj->IncDB($sql_prod_to_cat);
 			}
 			/*************** Добавление данных в таблицу product_attribute - end ******************/
 			

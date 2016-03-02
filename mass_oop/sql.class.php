@@ -48,7 +48,7 @@ class SqlInc{
 										($prod_id, 16, $lang, '$tok');";
 		return $sql_prod_attr;
 	}
-	function product_to_category($prod_id, $cat_id = 59, $cat_id_2 = CAT_ID_2){
+	function product_to_category($prod_id, $cat_id = 59, $cat_id2 = CAT_ID_2){
 		//основная категория        $cat_id = 59;   //авто аккумуляторы
 		//подкатегория по бренду    $cat_id2 = 59;  //авто аккумуляторы "название_бренда"
 		$sql_prod_cat = "INSERT INTO `product_to_category` (`product_id`, `category_id`) 

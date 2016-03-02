@@ -2,9 +2,9 @@
 define ('DB_HOST', 'localhost');
 define ('DB_USER', 'root');
 define ('DB_PASS', 'rootroot');
-define ('DB_NAME', 'opencart203');
+define ('DB_NAME', 'opc203');
 
-$filename = "./goods/berga.txt";
+$filename = "./goods/westa2.txt";
 
 $code_start = 113;
 //Bosch - 11
