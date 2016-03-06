@@ -86,13 +86,55 @@ class MassInc{
 		}
 		return $res;
 	}
-	function capacityAh ($array){
-		//емкость
-		foreach ($array as $k => $v){
-			if ((int)$v > 0){
-				return $k;
+	function container_capacity ($array){
+		//Определение литража канистры
+		$litres = array('1L', '2L', '4L', '5L', '20L', '200L', '208L');
+		foreach ($litres as $value){
+			if($result = array_search("$value", $array)){
+				return $result;
 			}
 		}
+	}
+	function oil_viscosity($array){
+		//определение вязкости масла
+		$litres = array('0W-20', '0W-30', '0W-40', '0W-50', '5W-30', '10W-40', '15W-40');
+		foreach ($litres as $value){
+			if($result = array_search("$value", $array)){
+				return $result;
+			}
+		}
+	}
+	function type_oil($viscosity){
+		//переписать так:
+		//есть 3 масива с вязкостями: 1-все вязкости синтетики, 2-все вязкости полу, 3-все вязкости минералки
+		//массив $res по-умолчанию во всех ячеках содержит NULL
+		//ищем переданное значение в каждом из 3х массивов вязкостей
+		//если переданное знач. совпало с одним из значений в массиве с вязкостями синтетики, тогда
+		//в массиве $res ячейке [full] устанавливаем значение "selected" и делаем return $res 
+		//дальше по аналогии
+		switch ($viscosity){
+			case '5W-30':
+				$res['semi'] = NULL;
+				$res['full'] = "selected";
+				$res['mineral'] = NULL;
+				return $res;
+			case '10W-40':
+				$res['semi'] = "selected";
+				$res['full'] = NULL;
+				$res['mineral'] = NULL;
+				return $res;
+			case '15W-40':
+				$res['semi'] = NULL;
+				$res['full'] = NULL;
+				$res['mineral'] = "selected";
+				return $res;
+			case '0W-40':
+				$res['semi'] = NULL;
+				$res['full'] = "selected";
+				$res['mineral'] = NULL;
+				return $res;
+		}
+		
 	}
 	function startCurrent ($array){
 		//пусковой ток
@@ -171,6 +213,7 @@ class MassInc{
 			return $zero = "?";
 		}
 	}
+	
 
 }//закрывающа¤ скобка класса
 ?>

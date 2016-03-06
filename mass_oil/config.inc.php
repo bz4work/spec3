@@ -3,6 +3,8 @@ define ('DB_HOST', 'localhost');
 define ('DB_USER', 'root');
 define ('DB_PASS', 'rootroot');
 define ('DB_NAME', 'opc203');
+//в какой ячейке цена? поставить цифру (счиатать от 0...)
+$where_price = 2;
 
 $filename = "./_goods/aral-test.txt";
 

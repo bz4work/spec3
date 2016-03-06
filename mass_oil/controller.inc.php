@@ -1,6 +1,7 @@
 <?php
 //массив для хранения результатов выполнения запросов
 $res_query = array();
+
 for ($i = 0 ; $i < $arr['count']; ++$i){
 			/****** Фильтруем входные данные ******/
 			$model = $test_obj->clearData($_POST["model_$i"]);
@@ -98,6 +99,7 @@ for ($i = 0 ; $i < $arr['count']; ++$i){
 			
 			$res_query[] = "<hr color = 'green'>";
 }//скобка основного цикла FOR
+
 $_SESSION['result_query'] = $res_query;
 header ('Location: index-oil.php');
 
