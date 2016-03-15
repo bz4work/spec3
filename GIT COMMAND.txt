@@ -47,3 +47,6 @@ git log -p имя_файла
 git blame имя_файла
 
 Надо проверить.
+
+https://git-scm.com/book/ru/v1/Основы-Git-Просмотр-истории-коммитов
+https://git-scm.com/book/ru/v1/Инструменты-Git-Прятанье
