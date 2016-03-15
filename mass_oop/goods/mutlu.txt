@@ -1,7 +1,7 @@
-п»їMutlu 60Ah L+ 520A
+Mutlu 60Ah L+ 520A
 Mutlu 60Ah R+ 520A
 Mutlu 60Ah R+ 600A
-Mutlu 65Ah R+ 720A (РєРѕСЂРїСѓСЃ 70) (РЅРёР·РєРѕР±Р°Р·РѕРІС‹Р№) 
+Mutlu 65Ah R+ 720A (корпус 70) (низкобазовый) 
 Mutlu 75Ah R+ 720A
 Mutlu 75Ah L+ 720A
 Mutlu 80Ah R+ 700A
