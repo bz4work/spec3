@@ -71,7 +71,7 @@ print_r($_POST);
 echo '</pre><hr><br><br>';
 ?>
 <form action="index-gas.php" method="post">
-	<input type="text" name="date" value="<?=date('d.m.y', time());?>"> date<br>
+	<input type="text" name="date" value="<?=date('d.m.y', time());?>"> 1date<br>
 	<input type="text" name="time" value="<?=date('H:i', time());?>"> time<br><br>
 	<input type="radio" name="over" value="no"> NO
 	<input type="radio" name="over" value="yes"> YES<br>
