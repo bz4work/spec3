@@ -1,0 +1,18 @@
+Forse 45Ah L+ 440A
+Forse 45Ah R+ 440A
+Forse 50Ah L+ 440A
+Forse 50Ah R+ 440A
+Forse 55Ah L+ 530A
+Forse 55Ah R+ 530A
+Forse 60Ah L+ 600A (низкобазовый) 
+Forse 60Ah R+ 600A (низкобазовый) 
+Forse 65Ah L+ 630A
+Forse 65Ah R+ 630A
+Forse 70Ah L+ 720A
+Forse 70Ah R+ 720A
+Forse 74Ah L+ 720A
+Forse 74Ah R+ 720A
+Forse 92Ah L+ 810A
+Forse 92Ah R+ 810A
+Forse 100Ah L+ 850A
+Forse 100Ah R+ 850A
