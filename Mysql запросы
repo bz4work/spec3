@@ -8,7 +8,7 @@ FROM
 WHERE manufacturer_id = 14;
 
 ReadMe:
-где product.product_id, product.model, product.image, product_description.name - колонки которые хотим получить.
+где (product.product_id, product.model, product.image, product_description.name) - колонки которые хотим получить.
 при чем (product_description.name) - (product_description) - название таблицы, а (name) - навзание колонки.
 где (product) - первая таблица.
 где (product_description) - вторая таблица.
