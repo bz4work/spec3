@@ -48,11 +48,11 @@ class SqlInc{
 										($prod_id, 16, $lang, '$tok');";
 		return $sql_prod_attr;
 	}
-	function product_to_category($prod_id, $cat_id = 59, $cat_id2 = CAT_ID_2){
-		//основная категория        $cat_id = 59;   //авто аккумуляторы
-		//подкатегория по бренду    $cat_id2 = 59;  //авто аккумуляторы "название_бренда"
+	function product_to_category($prod_id){
+		$cat_id = CAT_ID;
+		$cat_id_2 = CAT_ID_2;
 		$sql_prod_cat = "INSERT INTO `product_to_category` (`product_id`, `category_id`) 
-						VALUES ($prod_id, $cat_id), ($prod_id, $cat_id2);";
+						VALUES ($prod_id, $cat_id), ($prod_id, $cat_id_2);";
 		return $sql_prod_cat;
 	}
 	function product_to_layout($prod_id, $store = 0, $lay = 0){
