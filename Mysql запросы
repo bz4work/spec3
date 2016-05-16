@@ -1,0 +1,18 @@
+----------------------------JOIN---------------------------------------
+SELECT 
+    product.product_id, product.model, product.image, product_description.name
+FROM
+    product
+        INNER JOIN
+    product_description ON product.product_id = product_description.product_id
+WHERE manufacturer_id = 14;
+
+ReadMe:
+где (product.product_id, product.model, product.image, product_description.name) - колонки которые хотим получить.
+где (product_description.name): (product_description) - название таблицы, а (name) - навзание колонки.
+где (product) - первая таблица.
+где (product_description) - вторая таблица.
+где (ON product.product_id = product_description.product_id) - общий признак, по которому делаем объединение таблиц.
+где (WHERE manufacturer_id = 14;) - фильтрация, после объединения отобрать только те, 
+у которых в колонке (manufacturer_id) значение равно 14.
+-------------------------------------------------------------------

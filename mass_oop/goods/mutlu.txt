@@ -1,38 +1,37 @@
-﻿Mutlu AGM Start-Stop 70Ah R+ 760A
-Mutlu AGM Start-Stop 95Ah R+ 900A
-Mutlu Mega Calcium 110Ah JR+ 760A
-Mutlu Mega Calcium 135Ah L+ 950A
-Mutlu Mega Calcium 190Ah L+ 1250A
-Mutlu Mega Calcium 225Ah L+ 1450A
-Mutlu Mega Calcium 240Ah L+ 1500A
-Mutlu Sealed Silver Calcium 100Ah R+ 850A
-Mutlu Sealed Silver Calcium 55Ah R+ 450A
-Mutlu Sealed Silver Calcium 60Ah L+ 520A
-Mutlu Sealed Silver Calcium 60Ah R+ 520A
-Mutlu Sealed Silver Calcium 90Ah JR+ 720A
-Mutlu Silver Calcium 100Ah JL+ 760A
-Mutlu Silver Calcium 100Ah JR+ 760A
-Mutlu Silver Calcium 100Ah R+ 850A
-Mutlu Silver Calcium 110Ah R+ 920A
-Mutlu Silver Calcium 42Ah JR+ 350A (тонкая клемма)
-Mutlu Silver Calcium 55Ah JR+ 450A
-Mutlu Silver Calcium 55Ah JR+ 500A
-Mutlu Silver Calcium 55Ah JR+ 500A - УДАЛЕНО
-Mutlu Silver Calcium 56Ah JR+ 420A
-Mutlu Silver Calcium 60Ah JL+ 520A
-Mutlu Silver Calcium 60Ah JR+ 520A
-Mutlu Silver Calcium 60Ah L+ 520A
-Mutlu Silver Calcium 60Ah R+ 520A
-Mutlu Silver Calcium 60Ah R+ 600A
-Mutlu Silver Calcium 63Ah L+ 550A
-Mutlu Silver Calcium 63Ah R+ 550A
-Mutlu Silver Calcium 65Ah L+ 540A
-Mutlu Silver Calcium 65Ah R+ 720A (корпус 70) (низкобазовый)
-Mutlu Silver Calcium 68Ah JR+ 600A (корпус 60)
-Mutlu Silver Calcium 68Ah JR+ 600A (корпус 70)
-Mutlu Silver Calcium 70Ah JR+ 630A
-Mutlu Silver Calcium 75Ah JR+ 650A
-Mutlu Silver Calcium 75Ah R+ 720A
-Mutlu Silver Calcium 80Ah JR+ 660A (корпус 70)
-Mutlu Silver Calcium 84Ah R+ 800A
-Mutlu Ultra Calcium 60Ah R+ 450A
+Mutlu 60Ah L+ 520A
+Mutlu 60Ah R+ 520A
+Mutlu 60Ah R+ 600A
+Mutlu 65Ah R+ 720A (������ 70) (������������) 
+Mutlu 75Ah R+ 720A
+Mutlu 75Ah L+ 720A
+Mutlu 80Ah R+ 700A
+Mutlu 80Ah L+ 700A
+Mutlu 84Ah R+ 800A
+Mutlu 84Ah L+ 800A
+Mutlu 100Ah R+ 850A
+Mutlu 100Ah L+ 850A
+Mutlu 110Ah R+ 920A
+Mutlu 110Ah L+ 920A
+Mutlu 55Ah JR+ 500A (Hyundai)
+Mutlu 55Ah JR+ 450A (Honda)
+Mutlu 60Ah JL+ 520A
+Mutlu 60Ah JR+ 520A
+Mutlu 68Ah JR+ 600A (230mm)
+Mutlu 68Ah JR+ 600A (260mm)
+Mutlu 70Ah JR+ 630A
+Mutlu 70Ah JL+ 630A
+Mutlu 75Ah JR+ 650A
+Mutlu 75Ah JL+ 650A
+Mutlu 80Ah JR+ 720A (260mm)
+Mutlu 80Ah JL+ 720A (260mm)
+Mutlu 90Ah JR+ 720A
+Mutlu 90Ah JL+ 720A
+Mutlu 100Ah JL+ 760A
+Mutlu 100Ah JR+ 760A
+Mutlu 110Ah JR+ 760A
+Mutlu Start-Stop AGM 70Ah R+ 760A
+Mutlu Start-Stop AGM 95Ah R+ 900A
+Mutlu Mega 135Ah (3) 950A
+Mutlu Mega 190Ah (3) 1250A
+Mutlu Mega 225Ah (3) 1450A
+Mutlu Mega 240Ah (3) 1500A
